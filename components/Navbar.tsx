@@ -9,7 +9,7 @@ export default function Navbar() {
         </Link>
         <div className="flex items-center gap-6 text-sm">
           <Link href="/" className="text-slate-200 hover:text-white">Accueil</Link>
-          <a href="/#projects" className="text-slate-200 hover:text-white">Projets</a>
+          {/* <Link href="/#projects" className="text-slate-200 hover:text-white">Projets</Link> */}
           <Link href="/projects" className="text-slate-200 hover:text-white">Tous les projets</Link>
           <a href="/cv/Axel_Ibanez_CV.pdf" target="_blank" className="text-slate-200 hover:text-white">CV</a>
         </div>
