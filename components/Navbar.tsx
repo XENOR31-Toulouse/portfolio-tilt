@@ -11,7 +11,7 @@ export default function Navbar() {
           <Link href="/" className="text-slate-200 hover:text-white">Accueil</Link>
           {/* <Link href="/#projects" className="text-slate-200 hover:text-white">Projets</Link> */}
           <Link href="/projects" className="text-slate-200 hover:text-white">Tous les projets</Link>
-          <a href="/cv/Axel_Ibanez_CV.pdf" target="_blank" className="text-slate-200 hover:text-white">CV</a>
+          <Link href="/cv/Axel_Ibanez_CV.pdf" target="_blank" className="text-slate-200 hover:text-white">CV</Link>
         </div>
       </div>
     </nav>

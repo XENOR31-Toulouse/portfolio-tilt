@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="mt-16 bg-transparent border-t-0">
@@ -15,18 +16,18 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-2">Navigation</h3>
             <ul className="space-y-1 text-sm">
-              <li><a href="/" className="hover:text-violet-300 transition">Accueil</a></li>
-              <li><a href="/projects" className="hover:text-violet-300 transition">Projets</a></li>
-              <li><a href="/cv/Axel_Ibanez_CV.pdf" target="_blank" className="hover:text-violet-300 transition">CV (PDF)</a></li>
-              <li><a href="mailto:axel.ibanez31000@gmail.com" className="hover:text-violet-300 transition">Contact</a></li>
+              <li><Link href="/" className="hover:text-violet-300 transition">Accueil</Link></li>
+              <li><Link href="/projects" className="hover:text-violet-300 transition">Projets</Link></li>
+              <li><Link href="/cv/Axel_Ibanez_CV.pdf" target="_blank" className="hover:text-violet-300 transition">CV (PDF)</Link></li>
+              <li><Link href="mailto:axel.ibanez31000@gmail.com" className="hover:text-violet-300 transition">Contact</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold text-white mb-2">Réseaux</h3>
             <ul className="space-y-1 text-sm">
-              <li><a href="https://www.linkedin.com/in/axel-ibanez-9a2918193" target="_blank" rel="noreferrer" className="hover:text-violet-300 transition">LinkedIn</a></li>
-              <li><a href="mailto:axel.ibanez31000@gmail.com" className="hover:text-violet-300 transition">Email</a></li>
+              <li><Link href="https://www.linkedin.com/in/axel-ibanez-9a2918193" target="_blank" rel="noreferrer" className="hover:text-violet-300 transition">LinkedIn</Link></li>
+              <li><Link href="mailto:axel.ibanez31000@gmail.com" className="hover:text-violet-300 transition">Email</Link></li>
             </ul>
           </div>
         </div>

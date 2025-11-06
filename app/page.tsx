@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       <div className="relative">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(139,92,246,0.25),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(236,72,153,0.15),transparent_35%)]" />
+        <div />
         <Navbar />
 
         {/* Hero CV */}
@@ -30,23 +30,23 @@ export default function Home() {
 
               {/* Contacts */}
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <a
+                <Link
                   href={`mailto:${profile.contact.email}`}
                   className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition
                    transition-all duration-300 ease-out
     hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
                 >
                   Email
-                </a>
-                <a
+                </Link>
+                <Link
                   href={`tel:${profile.contact.phone.replace(/\s+/g, "")}`}
                   className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition
                    transition-all duration-300 ease-out
     hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
                 >
                   Téléphone
-                </a>
-                <a
+                </Link>
+                <Link
                   href={profile.links.linkedin}
                   target="_blank"
                   rel="noreferrer"
@@ -55,8 +55,8 @@ export default function Home() {
     hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
                 >
                   LinkedIn
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/cv/Axel_Ibanez_CV.pdf"
                   target="_blank"
                   className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition
@@ -64,7 +64,7 @@ export default function Home() {
     hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
                 >
                   Télécharger le CV (PDF)
-                </a>
+                </Link>
               </div>
 
               {/* Tags stack */}
@@ -73,7 +73,7 @@ export default function Home() {
                   <span
                     key={t}
                     // className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 "
-                     className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200
+                    className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200
     transition-all duration-300 ease-out
     hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
                   >
@@ -167,6 +167,57 @@ export default function Home() {
                 </TiltCard>
               </Link>
             ))}
+          </div>
+        </section>
+
+        {/* Education / Langues / Centres d'intérêt */}
+        <section className="mx-auto max-w-7xl px-6 pt-12 pb-12 grid gap-10 md:grid-cols-3">
+          {/* Formation */}
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Formation</h2>
+            <div className="space-y-3">
+              {profile.education.map((edu, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl border border-white/10 bg-white/5 p-4 hover:border-violet-400/30 transition-all"
+                >
+                  <div className="text-sm text-violet-300/80">{edu.period}</div>
+                  <div className="font-semibold text-white">{edu.label}</div>
+                  <div className="text-slate-300 text-sm">{edu.school}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Langues */}
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Langues</h2>
+            <div className="space-y-3">
+              {profile.languages.map((lang, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl border border-white/10 bg-white/5 p-4 hover:border-violet-400/30 transition-all"
+                >
+                  <div className="font-semibold text-white">{lang.label}</div>
+                  <div className="text-slate-300 text-sm">{lang.level}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Centres d'intérêt */}
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Centres d'intérêt</h2>
+            <div className="flex flex-wrap gap-2">
+              {profile.interests.map((interest) => (
+                <span
+                  key={interest}
+                  className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-sm hover:border-violet-400/40 hover:shadow-[0_0_14px_rgba(139,92,246,0.35)] transition-all"
+                >
+                  {interest}
+                </span>
+              ))}
+            </div>
           </div>
         </section>
       </div>

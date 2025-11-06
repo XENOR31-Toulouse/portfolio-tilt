@@ -1,0 +1,21 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* 🌀 Slow parallax-like glow movement */
+@keyframes slowMove {
+  0% {
+    background-position: 30% 20%, 80% 60%;
+  }
+  50% {
+    background-position: 35% 25%, 75% 55%;
+  }
+  100% {
+    background-position: 30% 20%, 80% 60%;
+  }
+}
+
+.animate-slow-move {
+  background-size: 150% 150%;
+  animation: slowMove 25s ease-in-out infinite alternate;
+}
