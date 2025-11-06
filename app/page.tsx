@@ -32,7 +32,7 @@ export default function Home() {
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Link
                   href={`mailto:${profile.contact.email}`}
-                  className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition
+                  className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 
                    transition-all duration-300 ease-out
     hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
                 >
@@ -40,7 +40,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href={`tel:${profile.contact.phone.replace(/\s+/g, "")}`}
-                  className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition
+                  className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 
                    transition-all duration-300 ease-out
     hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
                 >
@@ -50,7 +50,7 @@ export default function Home() {
                   href={profile.links.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-4 py-2 rounded-xl border border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 transition
+                  className="px-4 py-2 rounded-xl border border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 
                    transition-all duration-300 ease-out
     hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
                 >
@@ -59,7 +59,7 @@ export default function Home() {
                 <Link
                   href="/cv/Axel_Ibanez_CV.pdf"
                   target="_blank"
-                  className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition
+                  className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 
                    transition-all duration-300 ease-out
     hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
                 >
@@ -207,7 +207,7 @@ export default function Home() {
 
           {/* Centres d'intérêt */}
           <div>
-            <h2 className="text-xl font-semibold mb-4">Centres d'intérêt</h2>
+            <h2 className="text-xl font-semibold mb-4">Centres d&#39;intérêt</h2>
             <div className="flex flex-wrap gap-2">
               {profile.interests.map((interest) => (
                 <span
