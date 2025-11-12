@@ -134,33 +134,55 @@ export default function Home() {
               Tout voir
             </Link>
           </div>
+
           <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p) => (
+            {projects.slice(0, 3).map((p, i) => (
+
               <Link
                 key={p.slug}
                 href={`/projects/${p.slug}`}
                 className="block group"
               >
                 <TiltCard className="h-full transition-transform duration-300 group-hover:-translate-y-0.5">
-                  <div className="aspect-video w-full overflow-hidden rounded-xl bg-gradient-to-br from-violet-600/20 to-fuchsia-600/10 border border-white/10 flex items-center justify-center">
-                    <span className="text-violet-300/90 text-sm uppercase tracking-widest">
-                      {p.image ? "Prévisuel" : "Projet"}
-                    </span>
-                  </div>
+                  
+                  {/* ✅ If a cover exists, show it. Otherwise show the gradient placeholder */}
+                  {p.cover ? (
+                    <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10">
+                      <Image
+                        src={p.cover}
+                        alt={p.title}
+                        width={800}
+                        height={450}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        priority={i < 3}
+                      />
+                    </div>
+                  ) : (
+                    <div className="aspect-video w-full overflow-hidden rounded-xl bg-gradient-to-br from-violet-600/20 to-fuchsia-600/10 border border-white/10 flex items-center justify-center">
+                      <span className="text-violet-300/90 text-sm uppercase tracking-widest">
+                        Projet
+                      </span>
+                    </div>
+                  )}
+
                   <h3 className="mt-4 text-xl font-semibold">{p.title}</h3>
                   <p className="mt-1 text-sm text-slate-300 line-clamp-2">
                     {p.description}
                   </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {p.tags.slice(0, 3).map((t) => (
-                      <span
-                        key={t}
-                        className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+
+                  {p.tags?.length ? (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {p.tags.slice(0, 60).map((t) => (
+                        <span
+                          key={t}
+                          className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
+
                   <span className="mt-4 inline-block text-sm text-violet-300 underline underline-offset-4">
                     Voir le projet →
                   </span>
