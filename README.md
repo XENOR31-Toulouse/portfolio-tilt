@@ -15,18 +15,6 @@ It highlights professional experience, personal projects, and key technical skil
 
 ☁️ Vercel — CI/CD and hosting
 
-🧩 Structure
-app/
- ├─ layout.tsx         → global layout + glow background
- ├─ page.tsx           → homepage (profile, experience, preview projects)
- ├─ projects/          → dynamic routes per project
- └─ components/        → Navbar, TiltCard, Footer, etc.
-lib/
- ├─ profile.ts         → profile information
- └─ projects.tsx       → project data (slug, tags, long JSX content)
-public/
- └─ images/            → assets and project covers
-
 🧱 Getting Started
 
 Clone the repo and install dependencies:
