@@ -10,6 +10,7 @@ export const profile = {
   },
   links: {
     linkedin: "https://www.linkedin.com/in/axel-ibanez-9a2918193",
+    github: "https://github.com/XENOR31-Toulouse",
   },
   skills: {
     core: [

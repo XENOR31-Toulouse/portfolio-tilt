@@ -27,7 +27,7 @@ export default function Footer() {
             <h3 className="font-semibold text-white mb-2">Réseaux</h3>
             <ul className="space-y-1 text-sm">
               <li><Link href="https://www.linkedin.com/in/axel-ibanez-9a2918193" target="_blank" rel="noreferrer" className="hover:text-violet-300 transition">LinkedIn</Link></li>
-              <li><Link href="mailto:axel.ibanez31000@gmail.com" className="hover:text-violet-300 transition">Email</Link></li>
+              <li><Link href="https://github.com/XENOR31-Toulouse" target="_blank" rel="noreferrer" className="hover:text-violet-300 transition">GitHub</Link></li>
             </ul>
           </div>
         </div>

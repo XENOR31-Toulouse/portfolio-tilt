@@ -43,6 +43,9 @@ export default function ProjectsIndex() {
 
                 <h3 className="mt-4 text-xl font-semibold">{p.title}</h3>
                 <p className="mt-1 text-sm text-slate-300 line-clamp-2">
+                  {p.date}
+                </p>
+                <p className="mt-1 text-sm text-slate-300 line-clamp-2">
                   {p.description}
                 </p>
 

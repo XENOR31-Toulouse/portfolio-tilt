@@ -47,6 +47,15 @@ export default function Home() {
                   Téléphone
                 </Link>
                 <Link
+                  href="/cv/Axel_Ibanez_CV.pdf"
+                  target="_blank"
+                  className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 
+                   transition-all duration-300 ease-out
+    hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
+                >
+                  Télécharger le CV (PDF)
+                </Link>
+                <Link
                   href={profile.links.linkedin}
                   target="_blank"
                   rel="noreferrer"
@@ -57,15 +66,17 @@ export default function Home() {
                   LinkedIn
                 </Link>
                 <Link
-                  href="/cv/Axel_Ibanez_CV.pdf"
+                  href={profile.links.github}
                   target="_blank"
-                  className="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 
+                  rel="noreferrer"
+                  className="px-4 py-2 rounded-xl border border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 
                    transition-all duration-300 ease-out
     hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
                 >
-                  Télécharger le CV (PDF)
+                  GitHub
                 </Link>
               </div>
+
 
               {/* Tags stack */}
               <div className="mt-6 flex flex-wrap gap-2">
@@ -84,7 +95,9 @@ export default function Home() {
             </div>
 
             {/* Photo */}
-            <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden ring-1 ring-white/15 shadow-2xl shrink-0">
+            <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden ring-1 ring-white/15 shadow-2xl shrink-0
+            transition-all duration-300 ease-out
+    hover:border-violet-400/40 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]">
               <Image
                 src="/images/profile.jpg"
                 alt="Portrait d'Axel Ibanez"

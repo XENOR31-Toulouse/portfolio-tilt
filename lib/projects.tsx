@@ -211,4 +211,43 @@ export const projects: Project[] = [
       </>
     ),
   },
+  // creation de automatisation de la mise a jour de prospect de calendly  vers le crm axonaut grace a make
+  {
+    slug: "automation-calendly-axonaut",
+    title: "Automatisation Calendly → Axonaut (Omena)",
+    date: "2025 - *",
+    description:
+      "Automatisation de la mise à jour des prospects de Calendly vers Axonaut. (Omena)",
+    tags: ["Make", "Automation", "CRM"],
+    cover: "/images/projects/site-vitrine-omena/make-logo.png",
+    content: (
+      <>
+        <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
+        <p className="text-slate-200 leading-relaxed">
+          Mise en place d’une automatisation pour synchroniser les prospects
+          recueillis via Calendly avec le CRM Axonaut. L’objectif était de
+          réduire le travail manuel et d’assurer une gestion efficace des
+          prospects.
+        </p> 
+        <h2 className="text-xl font-semibold text-white mt-8">Objectifs</h2>
+        <ul className="list-disc list-inside space-y-1 text-slate-200 leading-relaxed">
+          <li>Automatiser la création et la mise à jour des prospects.</li>
+          <li>Assurer la cohérence des données entre les deux plateformes.</li>
+        </ul>
+
+        <h2 className="text-xl font-semibold text-white mt-8">
+          Implémentation
+        </h2>
+        <p className="text-slate-200 leading-relaxed">
+          Utilisation de Make pour créer un scénario automatisé. Le scénario
+          récupère les nouveaux prospects de Calendly, extrait les
+          informations pertinentes, puis crée ou met à jour les fiches
+          prospects dans Axonaut. Gestion des erreurs et notifications en cas de
+          problème.
+        </p>
+      </>
+    ),
+  },
+  // 
+
 ];
