@@ -248,6 +248,42 @@ export const projects: Project[] = [
       </>
     ),
   },
-  // projet de site web vente de pc
+  // projet de site web portfolio (se que vous y etes actuellement)
+  {
+    slug: "portfolio-personnel",
+    title: "Portfolio Personnel",
+    date: "2025",
+    description: "Site web portfolio personnel développé avec Next.js et Tailwind CSS.",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript"," Vercel"],
+    // cover: "/images/projects/portfolio/personal-portfolio.png",
+    content: (
+      <>
+        <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
+        <p className="text-slate-200 leading-relaxed">
+          Création d’un site web portfolio pour présenter mes compétences,
+          expériences et projets. L’objectif était de créer une plateforme
+          professionnelle et attrayante pour attirer des employeurs potentiels
+          et des clients.
+        </p>
+
+        <h2 className="text-xl font-semibold text-white mt-8">
+          Fonctionnalités
+        </h2>
+        <ul className="list-disc list-inside space-y-1 text-slate-200 leading-relaxed">
+          <li>Présentation claire de mes compétences et expériences.</li>
+          <li>Section dédiée aux projets avec descriptions détaillées.</li>
+        </ul>
+
+        <h2 className="text-xl font-semibold text-white mt-8">
+          Implémentation
+        </h2>
+        <p className="text-slate-200 leading-relaxed">
+          Développement avec Next.js pour une performance optimale et une
+          expérience utilisateur fluide. Utilisation de Tailwind CSS pour un
+          design moderne et réactif.
+        </p>
+      </>
+    ),
+  },
 
 ];
