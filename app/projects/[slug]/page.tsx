@@ -41,7 +41,7 @@ export default async function ProjectPage({
 
       <section className="mx-auto max-w-4xl px-6 pt-24 pb-24">
         {/* Header */}
-        <Link href="/" className="text-sm text-violet-300 hover:underline">
+        <Link href="/projects" className="text-sm text-violet-300 hover:underline">
           ← Retour
         </Link>
 
