@@ -32,7 +32,7 @@ export const projects: Project[] = [
       "Docker",
       "architecture hexagonale",
     ],
-    cover: "/images/projects/Frequentiel/frequentiel.png",
+    // cover: "/images/projects/Frequentiel/frequentiel.png",
     content: (
       <>
         <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     description:
       "Formation interne sur Cypress pour automatiser les tests end-to-end.",
     tags: ["Cypress", "Testing", "Formation"],
-    cover: "/images/projects/Frequentiel/frequentiel.png",
+    // cover: "/images/projects/Frequentiel/frequentiel.png",
     content: (
       <>
         <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     date: "2025 - *",
     description: "Refonte, formulaires, correctif.",
     tags: ["WordPress", "Elementor"],
-    cover: "/images/projects/site-vitrine-omena/omena_cover.jpg",
+    // cover: "/images/projects/site-vitrine-omena/omena_cover.jpg",
     links: [{ label: "Visiter", href: "https://omena.fr" }],
     content: (
       <>
@@ -140,7 +140,7 @@ export const projects: Project[] = [
     date: "2024 - *",
     description: "Création d'un site vitrine pour un avocat.",
     tags: ["WordPress", "Elementor"],
-    cover: "/images/projects/avocat/Cabinet.jpg",
+    // cover: "/images/projects/avocat/Cabinet.jpg",
     gallery: ["/images/projects/avocat/Domaines.jpg"],
     content: (
       <>
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     date: "2022 - 2023",
     description: "Application web pour le suivi des tâches en temps réel.",
     tags: ["Java SpringBoot", "Angular", "WebSocket", "Docker"],
-    cover: "/images/projects/Frequentiel/frequentiel.png",
+    // cover: "/images/projects/Frequentiel/frequentiel.png",
     content: (
       <>
         <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
@@ -219,7 +219,7 @@ export const projects: Project[] = [
     description:
       "Automatisation de la mise à jour des prospects de Calendly vers Axonaut. (Omena)",
     tags: ["Make", "Automation", "CRM"],
-    cover: "/images/projects/site-vitrine-omena/make-logo.png",
+    // cover: "/images/projects/site-vitrine-omena/make-logo.png",
     content: (
       <>
         <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
