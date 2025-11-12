@@ -43,27 +43,3 @@ npm run dev
 
 Open http://localhost:3000
  to view it locally.
-
-🧩 Adding a New Project
-
-Each project is defined in lib/projects.tsx
-:
-
-{
-  slug: "site-vitrine-omena",
-  title: "Site Vitrine Omena",
-  description: "Refonte, formulaires, SEO et hébergement optimisé.",
-  tags: ["Next.js", "Tailwind", "SEO"],
-  cover: "/images/projects/site-vitrine-omena/cover.jpg",
-  links: [{ label: "Visiter", href: "https://omena.fr" }],
-  content: (
-    <>
-      <h2>Contexte</h2>
-      <p>Refonte du site vitrine d’Omena…</p>
-    </>
-  ),
-}
-
-
-🛠️ After updating this file, commit & push to main —
-Vercel will automatically rebuild and redeploy your portfolio.
