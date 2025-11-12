@@ -278,5 +278,34 @@ export const projects: Project[] = [
       </>
     ),
   },
+  // nouveau preoject test angular
+  {
+    slug: "projet-test-angular",
+    title: "Projet Test Angular",
+    date: "2024",
+    description: "Un projet de test pour expérimenter avec Angular.",
+    tags: ["Angular", "TypeScript", "Web Development"],
+    cover: "/images/projects/angular-test/angular-logo.png",
+    content: (
+      <>
+        <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
+        <p className="text-slate-200 leading-relaxed">
+          Ce projet a été créé pour expérimenter avec le framework Angular et explorer ses fonctionnalités. L’objectif était de se familiariser avec la structure d’un projet Angular et de comprendre les meilleures pratiques de développement.
+        </p>
+
+        <h2 className="text-xl font-semibold text-white mt-8">Fonctionnalités</h2>
+        <ul className="list-disc list-inside space-y-1 text-slate-200 leading-relaxed">
+          <li>Composants réutilisables.</li>
+          <li>Routage entre différentes vues.</li>
+          <li>Gestion de l’état avec des services Angular.</li>
+        </ul>
+
+        <h2 className="text-xl font-semibold text-white mt-8">Implémentation</h2>
+        <p className="text-slate-200 leading-relaxed">
+          Le projet a été développé en utilisant Angular CLI pour générer la structure de base. TypeScript a été utilisé pour le typage statique, et les composants ont été organisés de manière modulaire pour faciliter la maintenance et la réutilisation.
+        </p>
+      </>
+    ),
+  }
 
 ];
