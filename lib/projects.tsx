@@ -248,6 +248,35 @@ export const projects: Project[] = [
       </>
     ),
   },
-  // 
+  // projet de site web vente de pc
+  {
+    slug: "site-ecommerce-pc",
+    title: "Site E-commerce Vente de PC",
+    date: "2024 - *",
+    description: "Création d'un site e-commerce pour la vente de PC.",
+    tags: ["WordPress", "WooCommerce", "Elementor"],
+    cover: "/images/projects/ecommerce-pc/ecommerce-pc-cover.jpg",
+    content: (
+      <>
+        <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
+        <p className="text-slate-200 leading-relaxed">
+          Création d’un site e-commerce pour la vente de PC. Le site devait
+          offrir une expérience utilisateur fluide et sécurisée, tout en
+          mettant en avant les produits de manière attrayante.
+        </p>
+        
+        <h2 className="text-xl font-semibold text-white mt-8">Objectifs</h2>
+        <ul className="list-disc list-inside space-y-1 text-slate-200 leading-relaxed">
+          <li>Présenter les produits de manière claire et attrayante.</li>
+          <li>Faciliter le processus d’achat avec un panier et un paiement sécurisés.</li>
+        </ul>
+        
+        <h2 className="text-xl font-semibold text-white mt-8">  Implémentation</h2>
+        <p className="text-slate-200 leading-relaxed">
+          Développement grâce à WordPress, WooCommerce et Elementor Pro pour une personnalisation avancée. Intégration de passerelles de paiement sécurisées et optimisation des performances via la compression d’images et l’utilisation de plugins de mise en cache.
+        </p>
+      </>
+    ),
+  },
 
 ];
