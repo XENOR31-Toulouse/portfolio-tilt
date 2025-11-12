@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🧠 Axel Ibanez – Portfolio
 
-## Getting Started
+A modern, fast, and responsive developer portfolio built with Next.js 15, Tailwind CSS, and Tilt.js.
+It highlights professional experience, personal projects, and key technical skills — all hosted and deployed on Vercel.
 
-First, run the development server:
+🚀 Stack
 
-```bash
+⚡ Next.js 15 (App Router) — hybrid static + SSR rendering
+
+🎨 Tailwind CSS — custom dark theme (black + violet)
+
+🧭 Framer Motion / Tilt.js — smooth hover & parallax effects
+
+🖼️ Next/Image — optimized image loading
+
+☁️ Vercel — CI/CD and hosting
+
+🧩 Structure
+app/
+ ├─ layout.tsx         → global layout + glow background
+ ├─ page.tsx           → homepage (profile, experience, preview projects)
+ ├─ projects/          → dynamic routes per project
+ └─ components/        → Navbar, TiltCard, Footer, etc.
+lib/
+ ├─ profile.ts         → profile information
+ └─ projects.tsx       → project data (slug, tags, long JSX content)
+public/
+ └─ images/            → assets and project covers
+
+🧱 Getting Started
+
+Clone the repo and install dependencies:
+
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
+npm install
+
+
+Run the dev server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open http://localhost:3000
+ to view it locally.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🧩 Adding a New Project
 
-## Learn More
+Each project is defined in lib/projects.tsx
+:
 
-To learn more about Next.js, take a look at the following resources:
+{
+  slug: "site-vitrine-omena",
+  title: "Site Vitrine Omena",
+  description: "Refonte, formulaires, SEO et hébergement optimisé.",
+  tags: ["Next.js", "Tailwind", "SEO"],
+  cover: "/images/projects/site-vitrine-omena/cover.jpg",
+  links: [{ label: "Visiter", href: "https://omena.fr" }],
+  content: (
+    <>
+      <h2>Contexte</h2>
+      <p>Refonte du site vitrine d’Omena…</p>
+    </>
+  ),
+}
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🛠️ After updating this file, commit & push to main —
+Vercel will automatically rebuild and redeploy your portfolio.
