@@ -14,20 +14,3 @@ It highlights professional experience, personal projects, and key technical skil
 🖼️ Next/Image — optimized image loading
 
 ☁️ Vercel — CI/CD and hosting
-
-🧱 Getting Started
-
-Clone the repo and install dependencies:
-
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
-npm install
-
-
-Run the dev server:
-
-npm run dev
-
-
-Open http://localhost:3000
- to view it locally.
