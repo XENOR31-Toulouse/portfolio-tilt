@@ -2,8 +2,12 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Portfolio – Axel Ibanez",
-  description: "Développeur Full Stack Junior – Portfolio noir & violet",
+  description: "Développeur Full Stack Junior • Portfolio noir & violet",
+  icons: {
+    icon: "/utilisateur.svg", // ✔️ correct
+  },
 };
+
 
 export default function RootLayout({
   children,
