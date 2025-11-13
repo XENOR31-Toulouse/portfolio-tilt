@@ -32,7 +32,7 @@ export const projects: Project[] = [
       "Docker",
       "architecture hexagonale",
     ],
-    cover: "/images/projects/Frequentiel/frequentiel.png",
+    cover: "/images/projects/frequentiel/frequentiel.png",
     content: (
       <>
         <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     description:
       "Formation interne sur Cypress pour automatiser les tests end-to-end.",
     tags: ["Cypress", "Testing", "Formation"],
-    cover: "/images/projects/Frequentiel/frequentiel.png",
+    cover: "/images/projects/frequentiel/frequentiel.png",
     content: (
       <>
         <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     date: "2022 - 2023",
     description: "Application web pour le suivi des tâches en temps réel.",
     tags: ["Java SpringBoot", "Angular", "WebSocket", "Docker"],
-    cover: "/images/projects/Frequentiel/frequentiel.png",
+    cover: "/images/projects/frequentiel/frequentiel.png",
     content: (
       <>
         <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
