@@ -4,19 +4,6 @@ import { useEffect, useRef } from "react";
 const magnetic = ".button, .nav-contact";
 const interactive = "a, button, label, summary, [role='button']";
 
-// True when the pointer sits on actual glyphs, like the native text cursor.
-function overText(x: number, y: number) {
-  const node =
-    document.caretPositionFromPoint?.(x, y)?.offsetNode ??
-    document.caretRangeFromPoint?.(x, y)?.startContainer;
-  if (node?.nodeType !== Node.TEXT_NODE || !node.textContent?.trim()) return false;
-  const range = document.createRange();
-  range.selectNodeContents(node);
-  return Array.from(range.getClientRects()).some(
-    (r) => x >= r.left && x <= r.right && y >= r.top && y <= r.bottom,
-  );
-}
-
 export default function Cursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
@@ -63,14 +50,12 @@ export default function Cursor() {
 
     const hide = () => {
       shown = false;
-      for (const name of ["is-visible", "is-hover", "is-text"]) setState(name, false);
+      for (const name of ["is-visible", "is-hover"]) setState(name, false);
       release();
     };
 
     const update = (target: Element | null) => {
-      const hover = !!target?.closest(interactive);
-      setState("is-hover", hover);
-      setState("is-text", !hover && overText(x, y));
+      setState("is-hover", !!target?.closest(interactive));
       const next = target?.closest<HTMLElement>(magnetic) ?? null;
       if (next !== magnet) {
         release();
