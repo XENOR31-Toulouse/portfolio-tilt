@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
+
 import { projects } from "@/lib/projects";
 import Image from "next/image";
 
@@ -36,20 +36,19 @@ export default async function ProjectPage({
   if (!project) return notFound();
 
   return (
-    <main className="relative z-20">
-      <Navbar />
-
+    <main id="main-content" className="project-detail relative z-20">
       <section className="mx-auto max-w-4xl px-6 pt-24 pb-24">
         {/* Header */}
-        <Link href="/projects" className="text-sm text-violet-300 hover:underline">
+        <Link
+          href="/projects"
+          className="text-sm text-violet-300 hover:underline"
+        >
           ← Retour
         </Link>
 
         <h1 className="mt-4 text-3xl md:text-5xl font-bold">{project.title}</h1>
         <p className="mt-3 text-slate-300 max-w-2xl">{project.description}</p>
-        <p className="mt-1 text-sm text-slate-500">
-          {project.date ?? ""}
-        </p>  
+        <p className="mt-1 text-sm text-slate-500">{project.date ?? ""}</p>
 
         {/* Cover (only if provided) */}
         {project.cover && (
