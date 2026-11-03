@@ -8,7 +8,7 @@ export default function Home() {
     <main id="main-content">
       <section className="shell hero">
         <div>
-          <p className="eyebrow">DÉVELOPPEUR FULL STACK / APPLICATIONS & INFRASTRUCTURE</p>
+          <p className="eyebrow">DÉVELOPPEUR FULL STACK / APPLICATIONS & ARCHITECTURE</p>
           <h1>
             Des idées.
             <br />
@@ -17,10 +17,10 @@ export default function Home() {
             <em>Du concret.</em>
           </h1>
           <p className="intro muted">
-            Je développe des applications web de bout en bout : interfaces
-            React et Angular, API Java Spring Boot, données PostgreSQL et
-            déploiements Docker. Aujourd’hui, je construis ces solutions chez
-            Omena.
+            Je conçois des applications web et des outils logiciels en
+            privilégiant la qualité, l’ergonomie et des architectures
+            maintenables. Je poursuis cette démarche dans mes projets
+            professionnels chez Omena.
           </p>
           <div className="actions">
             <Link className="button primary" href="#projets">
@@ -31,7 +31,7 @@ export default function Home() {
             </a>
           </div>
           <p className="hero-note">
-            ● &nbsp; Toulouse, France <span> / Chez Omena · du front à l’infrastructure</span>
+            ● &nbsp; Toulouse, France <span> / Chez Omena · développement & qualité logicielle</span>
           </p>
         </div>
         <div className="portrait">

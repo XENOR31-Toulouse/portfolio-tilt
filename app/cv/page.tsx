@@ -16,7 +16,7 @@ const expertise = [
   { label: "Front-end", skills: ["React", "Angular", "Next.js", "TypeScript"] },
   { label: "Back-end", skills: ["Java", "Spring Boot", "API REST", "Architecture hexagonale"] },
   { label: "Data & infrastructure", skills: ["PostgreSQL", "Flyway", "Docker", "GitHub Actions"] },
-  { label: "Automatisation & outils", skills: ["Rust", "n8n", "Linux / VPS", "Git"] },
+  { label: "Automatisation & outils", skills: ["Rust", "Workflows", "Linux", "Git"] },
 ];
 
 const featuredProjects = projects.filter((project) => project.featured);
@@ -34,7 +34,7 @@ export default function CvPage() {
           </h1>
           <p className="intro muted">
             Développeur Full Stack à Toulouse, je construis des applications
-            web, des API et des outils d&apos;infrastructure. Découvrez mon
+            web et des outils logiciels. Découvrez mon
             expérience, mes compétences et les choix techniques qui
             accompagnent mes projets.
           </p>
