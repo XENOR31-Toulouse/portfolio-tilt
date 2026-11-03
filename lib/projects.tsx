@@ -3,7 +3,17 @@ import type { ReactNode } from "react"
 /**
  * Project type definition
  */
+export type ProjectCategory =
+  | "Applications"
+  | "Infrastructure"
+  | "Automatisation"
+  | "Sites web"
+  | "Formation";
+
 export type Project = {
+  category?: ProjectCategory;
+  featured?: boolean;
+  visual?: string;
   slug: string;
   title: string;
   date?: string;
@@ -19,6 +29,131 @@ export type Project = {
  * Project list
  */
 export const projects: Project[] = [
+  {
+    slug: "ecosysteme-web-multi-interface-omena",
+    title: "Écosystème web multi-interface — Omena",
+    date: "2026",
+    category: "Applications",
+    featured: true,
+    visual: "API",
+    description:
+      "Deux interfaces web complémentaires connectées à une API Java et une base PostgreSQL.",
+    tags: ["React", "Angular", "Spring Boot", "PostgreSQL", "Docker"],
+    content: (
+      <>
+        <h2>Architecture</h2>
+        <p>
+          Conception d’un écosystème composé d’une PWA React avec Vite et d’un
+          dashboard Angular. Les deux interfaces communiquent avec une API REST
+          centralisée en Java 21 et Spring Boot.
+        </p>
+        <h2>Back-end et données</h2>
+        <ul>
+          <li>
+            Organisation en architecture hexagonale pour séparer le domaine,
+            les cas d’usage et les adaptateurs techniques.
+          </li>
+          <li>
+            Persistance PostgreSQL, migrations de schéma avec Flyway et
+            gestion des accès côté serveur.
+          </li>
+          <li>
+            Échanges API typés, traitement des états applicatifs et prise en
+            charge des contraintes propres à une PWA.
+          </li>
+        </ul>
+        <h2>Qualité et déploiement</h2>
+        <p>
+          Environnements de développement et de production définis avec Docker
+          Compose, validations automatisées avec GitHub Actions et déploiement
+          de services conteneurisés sur un VPS. Les détails fonctionnels
+          internes ne sont volontairement pas présentés ici.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "plateforme-orchestration-services-omena",
+    title: "Plateforme d’orchestration de services — Omena",
+    date: "2026",
+    category: "Automatisation",
+    featured: true,
+    visual: "FLOW",
+    description:
+      "Socle modulaire associant n8n, une API Spring Boot, une interface Angular et PostgreSQL.",
+    tags: ["n8n", "Spring Boot", "Angular", "PostgreSQL", "Docker Compose"],
+    content: (
+      <>
+        <h2>Découpage des responsabilités</h2>
+        <p>
+          Construction d’un socle dans lequel Angular assure l’interface web,
+          Spring Boot porte la logique applicative et expose les API REST, et
+          n8n orchestre les workflows entre les services.
+        </p>
+        <h2>Architecture technique</h2>
+        <ul>
+          <li>Services isolés et lancés ensemble avec Docker Compose.</li>
+          <li>
+            Stockage PostgreSQL et migrations Flyway pour les données de
+            l’API ; persistance dédiée pour n8n.
+          </li>
+          <li>
+            Contrôles de santé et restitution de l’état des services depuis
+            l’interface Angular.
+          </li>
+        </ul>
+        <h2>Approche</h2>
+        <p>
+          L’objectif technique est de garder des composants remplaçables,
+          observables et testables indépendamment. Le périmètre métier et les
+          sources de données restent confidentiels.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "console-supervision-rust-omena",
+    title: "Console native de supervision — Rust",
+    date: "2026",
+    category: "Infrastructure",
+    featured: true,
+    visual: "RUST",
+    description:
+      "Application Windows native pour superviser des VPS et fiabiliser les déploiements conteneurisés.",
+    tags: ["Rust", "egui", "OpenSSH", "SQLite", "Docker"],
+    content: (
+      <>
+        <h2>Application native</h2>
+        <p>
+          Développement d’une interface Windows en Rust avec eframe/egui,
+          sans serveur web local. Les opérations distantes passent par
+          OpenSSH et la configuration SSH du poste.
+        </p>
+        <h2>Supervision et diagnostics</h2>
+        <ul>
+          <li>
+            Lecture des métriques système, de l’état des conteneurs et des
+            journaux techniques sur les VPS.
+          </li>
+          <li>
+            Historique local des mesures dans SQLite et visualisation des
+            tendances dans l’interface.
+          </li>
+          <li>
+            Contrôles préalables aux déploiements et vérification des
+            sauvegardes PostgreSQL avant les opérations sensibles.
+          </li>
+        </ul>
+        <h2>Livraison</h2>
+        <p>
+          Compilation d’un exécutable portable via Rust/Cargo, avec
+          validation et production d’artefacts Windows par GitHub Actions.
+          Seuls les aspects d’ingénierie et d’exploitation sont détaillés.
+        </p>
+      </>
+    ),
+  },
+
   {
     slug: "dashboard-interne",
     title: "Dashboard Interne (Frequentiel)",
@@ -101,7 +236,7 @@ export const projects: Project[] = [
   {
     slug: "site-vitrine-omena",
     title: "Site Vitrine Omena",
-    date: "2025 - *",
+    date: "2025 — en cours",
     description: "Refonte, formulaires, correctif.",
     tags: ["WordPress", "Elementor"],
     // cover: "/images/projects/site-vitrine-omena/omena_cover.jpg",
@@ -137,7 +272,7 @@ export const projects: Project[] = [
   {
     slug: "site-avocat",
     title: "Site Vitrine Avocat",
-    date: "2024 - *",
+    date: "2024 — en cours",
     description: "Création d'un site vitrine pour un avocat.",
     tags: ["WordPress", "Elementor"],
     // cover: "/images/projects/avocat/Cabinet.jpg",
@@ -214,36 +349,30 @@ export const projects: Project[] = [
   // creation de automatisation de la mise a jour de prospect de calendly  vers le crm axonaut grace a make
   {
     slug: "automation-calendly-axonaut",
-    title: "Automatisation Calendly → Axonaut (Omena)",
-    date: "2025 - *",
+    title: "Intégration SaaS & automatisation — Omena",
+    date: "2025 — en cours",
+    category: "Automatisation",
     description:
-      "Automatisation de la mise à jour des prospects de Calendly vers Axonaut. (Omena)",
-    tags: ["Make", "Automation", "CRM"],
+      "Connexion d’outils SaaS à travers des scénarios automatisés et des échanges de données contrôlés.",
+    tags: ["Make", "API", "Automatisation"],
     cover: "/images/projects/site-vitrine-omena/make-logo.png",
     content: (
       <>
-        <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>
-        <p className="text-slate-200 leading-relaxed">
-          Mise en place d’une automatisation pour synchroniser les prospects
-          recueillis via Calendly avec le CRM Axonaut. L’objectif était de
-          réduire le travail manuel et d’assurer une gestion efficace des
-          prospects.
-        </p> 
-        <h2 className="text-xl font-semibold text-white mt-8">Objectifs</h2>
-        <ul className="list-disc list-inside space-y-1 text-slate-200 leading-relaxed">
-          <li>Automatiser la création et la mise à jour des prospects.</li>
-          <li>Assurer la cohérence des données entre les deux plateformes.</li>
+        <h2>Architecture d’intégration</h2>
+        <p>
+          Conception de scénarios Make reliant plusieurs services SaaS via
+          leurs interfaces d’intégration. Les données sont transformées,
+          validées puis transmises de manière structurée.
+        </p>
+        <h2>Fiabilité</h2>
+        <ul>
+          <li>Gestion des erreurs et signalement des échecs d’exécution.</li>
+          <li>Contrôles pour préserver la cohérence des données échangées.</li>
+          <li>Découplage des systèmes afin de faciliter leur évolution.</li>
         </ul>
-
-        <h2 className="text-xl font-semibold text-white mt-8">
-          Implémentation
-        </h2>
-        <p className="text-slate-200 leading-relaxed">
-          Utilisation de Make pour créer un scénario automatisé. Le scénario
-          récupère les nouveaux prospects de Calendly, extrait les
-          informations pertinentes, puis crée ou met à jour les fiches
-          prospects dans Axonaut. Gestion des erreurs et notifications en cas de
-          problème.
+        <p>
+          Le fonctionnement métier des services connectés n’est pas détaillé
+          publiquement.
         </p>
       </>
     ),

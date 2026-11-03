@@ -23,9 +23,9 @@ export default function ProjectCard({
           <div className="project-art" aria-hidden="true">
             <span>{p.tags[0]}</span>
             <strong>
-              {p.slug === "site-vitrine-omena" ? "omena." : "</>"}
+              {p.visual ?? (p.slug === "site-vitrine-omena" ? "omena." : "</>")}
             </strong>
-            <span>DESIGN & DÉVELOPPEMENT</span>
+            <span>{p.category ?? "DESIGN & DÉVELOPPEMENT"}</span>
           </div>
         )}
         <span className="project-arrow" aria-hidden="true">

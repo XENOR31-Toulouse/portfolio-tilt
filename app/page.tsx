@@ -8,7 +8,7 @@ export default function Home() {
     <main id="main-content">
       <section className="shell hero">
         <div>
-          <p className="eyebrow">AXEL IBANEZ / DÉVELOPPEUR FULL STACK</p>
+          <p className="eyebrow">DÉVELOPPEUR FULL STACK / APPLICATIONS & INFRASTRUCTURE</p>
           <h1>
             Des idées.
             <br />
@@ -17,8 +17,10 @@ export default function Home() {
             <em>Du concret.</em>
           </h1>
           <p className="intro muted">
-            Je conçois des applications web, du premier écran à la logique
-            métier. Curieux de nature, développeur par passion.
+            Je développe des applications web de bout en bout : interfaces
+            React et Angular, API Java Spring Boot, données PostgreSQL et
+            déploiements Docker. Aujourd’hui, je construis ces solutions chez
+            Omena.
           </p>
           <div className="actions">
             <Link className="button primary" href="#projets">
@@ -29,7 +31,7 @@ export default function Home() {
             </a>
           </div>
           <p className="hero-note">
-            ● &nbsp; Toulouse, France <span> / Front-end & back-end</span>
+            ● &nbsp; Toulouse, France <span> / Chez Omena · du front à l’infrastructure</span>
           </p>
         </div>
         <div className="portrait">
@@ -53,10 +55,10 @@ export default function Home() {
           <span>MON TERRAIN DE JEU</span>
           {[
             "Java / Spring Boot",
-            "Angular",
-            "React",
-            "Docker",
+            "React & Angular",
             "PostgreSQL",
+            "Docker / CI-CD",
+            "Rust & n8n",
           ].map((s) => (
             <span key={s}>{s}</span>
           ))}
@@ -77,7 +79,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="project-grid">
-          {[projects[0], projects[2], projects[5]].map((p, i) => (
+          {projects.filter((p) => p.featured).slice(0, 3).map((p, i) => (
             <ProjectCard key={p.slug} project={p} index={i} />
           ))}
         </div>

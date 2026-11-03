@@ -1,9 +1,9 @@
 export const profile = {
   name: "Axel Ibanez",
-  title: "Développeur Full Stack Junior",
+  title: "Développeur Full Stack",
   location: "Toulouse (Compans Caffarelli)",
   about:
-    "Développeur Full Stack passionné par les nouvelles technologies. Curieux et motivé, j’aime explorer, apprendre et me documenter pour enrichir mes compétences et développer des solutions innovantes.",
+    "Je conçois et fais évoluer des applications web complètes. Chez Omena, je travaille sur des interfaces React et Angular, des API Java, des données PostgreSQL, l’automatisation et le déploiement. J’aime construire des systèmes lisibles, testables et durables.",
   contact: {
     phone: "06 11 27 18 43",
     email: "axel.ibanez31000@gmail.com",
@@ -14,13 +14,24 @@ export const profile = {
   },
   skills: {
     core: [
-      "Java", "Spring Boot", "Angular", "React", "JavaScript", "HTML", "CSS",
-      "PostgreSQL", "MySQL", "MongoDB",
-      "Docker", "Kubernetes", "Git", "Kafka", "Architecture Hexagonale",
-      "Agile/Scrum"
+      "Java", "Spring Boot", "TypeScript", "React", "Angular", "Next.js",
+      "PostgreSQL", "Flyway", "Architecture hexagonale", "API REST",
+      "Docker", "GitHub Actions", "Rust", "n8n", "Linux / VPS", "Vercel",
+      "Cypress", "MySQL", "MongoDB", "Kubernetes", "Kafka", "Git",
+      "JavaScript", "HTML", "CSS", "Agile / Scrum",
     ]
   },
   experience: [
+    {
+      period: "En cours",
+      company: "Omena",
+      role: "Développeur Full Stack",
+      highlights: [
+        "Développement d’applications web React/PWA et Angular autour d’API Java Spring Boot",
+        "Conception de services en architecture hexagonale et persistance PostgreSQL",
+        "Industrialisation des environnements Docker, des pipelines CI/CD et de l’outillage d’exploitation en Rust",
+      ],
+    },
     {
       period: "2023 - 2025",
       company: "Frequentiel",
