@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { profile } from "@/lib/profile";
 import { delay } from "@/lib/motion";
+import Scramble from "@/components/Scramble";
 
 export const metadata: Metadata = {
   title: "Mentions légales — Axel Ibanez",
@@ -15,7 +16,7 @@ export default function LegalPage() {
     <main id="main-content">
       <section className="shell project-hero">
         <p className="eyebrow enter" style={delay(0)}>
-          INFORMATIONS LÉGALES
+          <Scramble text="INFORMATIONS LÉGALES" />
         </p>
         <h1>
           <span className="hero-line">

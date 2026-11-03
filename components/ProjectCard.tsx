@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Project } from "@/lib/projects";
@@ -18,28 +19,30 @@ export default function ProjectCard({
       data-reveal
       style={stagger(index)}
     >
-      <Tilt className={`project-image visual-${index % 3}`} max={8}>
-        {cover ? (
-          <Image
-            src={cover}
-            alt=""
-            fill
-            sizes="(max-width: 760px) 90vw, 40vw"
-          />
-        ) : (
-          <div className="project-art" aria-hidden="true">
-            <span>{p.tags[0]}</span>
-            <strong>
-              {p.visual ?? (p.slug === "site-vitrine-omena" ? "omena." : "</>")}
-            </strong>
-            <span>{p.category ?? "DESIGN & DÉVELOPPEMENT"}</span>
-          </div>
-        )}
-        <span className="project-arrow" aria-hidden="true">
-          ↗
-        </span>
-        <span className="glare" aria-hidden="true" />
-      </Tilt>
+      <ViewTransition name={`project-${p.slug}`} share="morph" default="none">
+        <Tilt className={`project-image visual-${index % 3}`} max={8}>
+          {cover ? (
+            <Image
+              src={cover}
+              alt=""
+              fill
+              sizes="(max-width: 760px) 90vw, 40vw"
+            />
+          ) : (
+            <div className="project-art" aria-hidden="true">
+              <span>{p.tags[0]}</span>
+              <strong>
+                {p.visual ?? (p.slug === "site-vitrine-omena" ? "omena." : "</>")}
+              </strong>
+              <span>{p.category ?? "DESIGN & DÉVELOPPEMENT"}</span>
+            </div>
+          )}
+          <span className="project-arrow" aria-hidden="true">
+            ↗
+          </span>
+          <span className="glare" aria-hidden="true" />
+        </Tilt>
+      </ViewTransition>
       <div className="project-meta">
         <span>
           {String(index + 1).padStart(2, "0")} / {p.tags[0]}

@@ -4,6 +4,8 @@ import { profile } from "@/lib/profile";
 import { projects } from "@/lib/projects";
 import ProjectCard from "@/components/ProjectCard";
 import Tilt from "@/components/Tilt";
+import HeroGlow from "@/components/HeroGlow";
+import Scramble from "@/components/Scramble";
 import { delay, stagger } from "@/lib/motion";
 const stack = [
   "Java / Spring Boot",
@@ -15,58 +17,61 @@ const stack = [
 export default function Home() {
   return (
     <main id="main-content">
-      <section className="shell hero">
-        <div>
-          <p className="eyebrow enter" style={delay(0)}>
-            DÉVELOPPEUR FULL STACK / APPLICATIONS & ARCHITECTURE
-          </p>
-          <h1>
-            {["Des idées.", "Du code."].map((l, i) => (
-              <span key={l} className="hero-line">
-                <span style={delay(i + 1)}>{l}</span>
+      <div className="hero-stage">
+        <HeroGlow />
+        <section className="shell hero">
+          <div>
+            <p className="eyebrow enter" style={delay(0)}>
+              <Scramble text="DÉVELOPPEUR FULL STACK / APPLICATIONS & ARCHITECTURE" />
+            </p>
+            <h1>
+              {["Des idées.", "Du code."].map((l, i) => (
+                <span key={l} className="hero-line">
+                  <span style={delay(i + 1)}>{l}</span>
+                </span>
+              ))}
+              <span className="hero-line">
+                <em style={delay(3)}>Du concret.</em>
               </span>
-            ))}
-            <span className="hero-line">
-              <em style={delay(3)}>Du concret.</em>
-            </span>
-          </h1>
-          <p className="intro muted enter" style={delay(5)}>
-            Je conçois des applications web et des outils logiciels en
-            privilégiant la qualité, l’ergonomie et des architectures
-            maintenables. Je poursuis cette démarche dans mes projets
-            professionnels chez Omena.
-          </p>
-          <div className="actions enter" style={delay(6)}>
-            <Link className="button primary" href="#projets">
-              Explorer mes projets ↗
-            </Link>
-            <a className="button" href={`mailto:${profile.contact.email}`}>
-              Discutons ensemble
-            </a>
-          </div>
-          <p className="hero-note enter" style={delay(7)}>
-            ● &nbsp; Toulouse, France <span> / Chez Omena · développement & qualité logicielle</span>
-          </p>
-        </div>
-        <Tilt className="portrait-tilt" max={9}>
-          <div className="portrait">
-            <Image
-              src="/images/profile.webp"
-              alt="Axel Ibanez"
-              fill
-              sizes="(max-width: 760px) 90vw, 440px"
-              priority
-            />
-            <span className="glare" aria-hidden="true" />
-            <div className="portrait-caption">
-              De la curiosité
-              <br />
-              <strong>à la création.</strong>
-              <span className="asterisk" aria-hidden="true" />
+            </h1>
+            <p className="intro muted enter" style={delay(5)}>
+              Je conçois des applications web et des outils logiciels en
+              privilégiant la qualité, l’ergonomie et des architectures
+              maintenables. Je poursuis cette démarche dans mes projets
+              professionnels chez Omena.
+            </p>
+            <div className="actions enter" style={delay(6)}>
+              <Link className="button primary" href="#projets">
+                Explorer mes projets ↗
+              </Link>
+              <a className="button" href={`mailto:${profile.contact.email}`}>
+                Discutons ensemble
+              </a>
             </div>
+            <p className="hero-note enter" style={delay(7)}>
+              ● &nbsp; Toulouse, France <span> / Chez Omena · développement & qualité logicielle</span>
+            </p>
           </div>
-        </Tilt>
-      </section>
+          <Tilt className="portrait-tilt" max={9}>
+            <div className="portrait">
+              <Image
+                src="/images/profile.webp"
+                alt="Axel Ibanez"
+                fill
+                sizes="(max-width: 760px) 90vw, 440px"
+                priority
+              />
+              <span className="glare" aria-hidden="true" />
+              <div className="portrait-caption">
+                De la curiosité
+                <br />
+                <strong>à la création.</strong>
+                <span className="asterisk" aria-hidden="true" />
+              </div>
+            </div>
+          </Tilt>
+        </section>
+      </div>
       <div className="stack-strip">
         <div className="shell">
           <span>MON TERRAIN DE JEU</span>
@@ -86,7 +91,7 @@ export default function Home() {
       <section id="projets" className="shell section">
         <div className="section-heading" data-reveal="title">
           <div>
-            <p className="eyebrow">01 / PROJETS SÉLECTIONNÉS</p>
+            <p className="eyebrow"><Scramble text="01 / PROJETS SÉLECTIONNÉS" /></p>
             <h2>
               Du code, mais surtout
               <br />
@@ -105,7 +110,7 @@ export default function Home() {
       </section>
       <section id="parcours" className="shell section journey">
         <div data-reveal="title">
-          <p className="eyebrow">02 / PARCOURS</p>
+          <p className="eyebrow"><Scramble text="02 / PARCOURS" /></p>
           <h2>
             Apprendre.
             <br />
@@ -137,7 +142,7 @@ export default function Home() {
       </section>
       <section className="shell section">
         <div data-reveal="title">
-          <p className="eyebrow">03 / COMPÉTENCES & CURIOSITÉ</p>
+          <p className="eyebrow"><Scramble text="03 / COMPÉTENCES & CURIOSITÉ" /></p>
           <h2>
             Une vision <em>full stack.</em>
           </h2>
@@ -171,7 +176,7 @@ export default function Home() {
       </section>
       <section id="contact" className="shell contact-section">
         <div data-reveal="title">
-          <p className="eyebrow">04 / ET SI ON ÉCHANGEAIT ?</p>
+          <p className="eyebrow"><Scramble text="04 / ET SI ON ÉCHANGEAIT ?" /></p>
           <h2>
             Votre prochain projet
             <br />
