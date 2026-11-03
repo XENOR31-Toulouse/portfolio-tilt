@@ -3,9 +3,9 @@ import { profile } from "@/lib/profile";
 export default function Footer() {
   return (
     <footer className="shell footer">
-      <a className="brand" href="/">
+      <Link className="brand" href="/">
         axel<span>.</span>ibanez
-      </a>
+      </Link>
       <span>© {new Date().getFullYear()} Axel Ibanez</span>
       <div>
         <Link href="/cv">CV ↗</Link>

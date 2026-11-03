@@ -4,6 +4,7 @@ import { profile } from "@/lib/profile";
 import { projects } from "@/lib/projects";
 import ProjectCard from "@/components/ProjectCard";
 import Tilt from "@/components/Tilt";
+import { delay, stagger } from "@/lib/motion";
 const stack = [
   "Java / Spring Boot",
   "React & Angular",
@@ -11,7 +12,6 @@ const stack = [
   "Docker / CI-CD",
   "Rust & n8n",
 ];
-const delay = (d: number) => ({ "--d": d }) as React.CSSProperties;
 export default function Home() {
   return (
     <main id="main-content">
@@ -160,11 +160,7 @@ export default function Home() {
           </div>
           <div className="education">
             {profile.education.map((e, i) => (
-              <article
-                key={e.label}
-                data-reveal
-                style={{ "--i": i % 3 } as React.CSSProperties}
-              >
+              <article key={e.label} data-reveal style={stagger(i)}>
                 <p className="eyebrow">{e.period || "FORMATION"}</p>
                 <h3>{e.label}</h3>
                 <p className="muted">{e.school}</p>

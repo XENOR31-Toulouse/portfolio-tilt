@@ -2,6 +2,7 @@
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import type { Project } from "@/lib/projects";
+import { delay } from "@/lib/motion";
 const categories = [
   "Tous",
   "Applications",
@@ -33,7 +34,11 @@ export default function ProjectExplorer({
   );
   return (
     <>
-      <div className="filters" aria-label="Filtrer les projets">
+      <div
+        className="filters enter"
+        style={delay(5)}
+        aria-label="Filtrer les projets"
+      >
         {categories.map((c) => (
           <button
             key={c}
@@ -47,7 +52,7 @@ export default function ProjectExplorer({
       <p className="result-count" aria-live="polite">
         {visible.length} projet{visible.length > 1 ? "s" : ""}
       </p>
-      <div className="project-grid explorer">
+      <div key={active} className="project-grid explorer swap">
         {visible.map((p) => (
           <ProjectCard key={p.slug} project={p} index={projects.indexOf(p)} />
         ))}

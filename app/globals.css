@@ -477,16 +477,149 @@ h3 {
 .projects-page h1 {
   font-size: clamp(48px, 6vw, 80px);
 }
-.project-detail h1 {
+.project-hero {
+  padding-block: 70px 50px;
+}
+.project-hero h1 {
+  font-size: clamp(42px, 5.6vw, 76px);
+  line-height: 1.08;
+  letter-spacing: -3px;
+  max-width: 980px;
+}
+.back-link {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  transition: color 0.2s, translate 0.2s;
+}
+.back-link:hover {
+  color: var(--accent);
+  translate: -4px 0;
+}
+.project-banner {
+  position: relative;
+  aspect-ratio: 21 / 9;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #201a2c;
+}
+.project-banner:has(img) {
+  background: #e5e0ed;
+}
+.project-banner img {
+  object-fit: contain;
+  padding: 32px;
+}
+.project-banner .project-art strong {
+  font-size: clamp(72px, 12vw, 150px);
+  letter-spacing: -6px;
+}
+.project-body {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 80px;
+  align-items: start;
+  padding-block: 80px 100px;
+}
+.project-facts {
+  position: sticky;
+  top: 120px;
+  display: grid;
+  gap: 28px;
+}
+.project-facts .eyebrow {
+  margin-bottom: 8px;
+}
+.project-facts p:not(.eyebrow) {
+  margin: 0;
+}
+.project-facts .tags {
+  margin-top: 0;
+}
+.project-content {
+  counter-reset: part;
+  max-width: 720px;
+  color: #d6d0df;
+  font-size: 16px;
+  line-height: 1.85;
+}
+.project-content h2 {
+  font-size: clamp(26px, 2.6vw, 34px);
+  letter-spacing: -1px;
+  margin: 64px 0 18px;
+  color: var(--ink);
+}
+.project-content h2:first-child {
+  margin-top: 0;
+}
+.project-content h2::before {
+  counter-increment: part;
+  content: counter(part, decimal-leading-zero) " /";
+  display: block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.project-content ul {
+  padding-left: 18px;
+}
+.project-content li {
+  margin-bottom: 10px;
+}
+.project-content li::marker {
+  color: var(--accent);
+}
+.project-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.project-content code {
+  font-size: 0.9em;
+  background: #ffffff10;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 50px;
+}
+.project-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+.next-project {
+  display: block;
+  padding-block: 80px 100px;
+  border-top: 1px solid var(--line);
+}
+.next-project strong {
+  display: block;
+  font-size: clamp(34px, 5vw, 68px);
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: -2px;
+  transition: color 0.3s;
 }
-.project-detail article {
-  max-width: 720px;
+.next-project strong span {
+  display: inline-block;
+  color: var(--accent);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.project-detail section > div img {
-  max-height: 520px;
-  object-fit: contain;
+.next-project:hover strong {
+  color: var(--accent);
+}
+.next-project:hover strong span {
+  transform: translate(8px, -8px);
 }
 .skip-link {
   position: fixed;
@@ -1135,8 +1268,18 @@ h3 {
   opacity: 1;
 }
 
-.portrait-tilt {
+.portrait-tilt,
+.cv-identity-tilt {
   animation: fade-up 1.2s 0.3s var(--ease-out) both;
+}
+.cv-identity-tilt:hover .cv-avatar {
+  filter: grayscale(0);
+}
+.cv-avatar {
+  transition: filter 0.8s;
+}
+.swap {
+  animation: fade-up 0.6s var(--ease-out) both;
 }
 .portrait > img {
   transition: filter 0.8s;
@@ -1235,7 +1378,8 @@ h3 {
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    [data-reveal] {
+    [data-reveal],
+    .project-content > * {
       animation: reveal-up linear both;
       animation-timeline: view();
       animation-range: entry 0% cover 28%;
@@ -1243,18 +1387,21 @@ h3 {
     [data-reveal="title"] {
       animation-name: reveal-title;
     }
-    .timeline {
+    .timeline,
+    .cv-experience-list {
       view-timeline: --timeline block;
       position: relative;
     }
-    .timeline article {
+    .timeline article,
+    .cv-experience {
       border-left-color: #ffffff14;
       view-timeline: --step block;
       animation: reveal-step linear both;
       animation-timeline: --step;
       animation-range: entry 10% cover 35%;
     }
-    .timeline::before {
+    .timeline::before,
+    .cv-experience-list::before {
       content: "";
       position: absolute;
       left: 0;
@@ -1267,7 +1414,8 @@ h3 {
       animation-timeline: --timeline;
       animation-range: entry 30% cover 65%;
     }
-    .timeline article:before {
+    .timeline article:before,
+    .cv-experience::before {
       box-shadow: 0 0 0 5px #b393fb22, 0 0 18px var(--accent);
       animation: dot linear both;
       animation-timeline: --step;
@@ -1326,6 +1474,30 @@ h3 {
 @media (max-width: 760px) {
   .stack-strip .shell {
     flex-wrap: wrap;
+  }
+  .project-hero {
+    padding-block: 45px 35px;
+  }
+  .project-hero h1 {
+    letter-spacing: -1.5px;
+  }
+  .project-banner {
+    aspect-ratio: 4 / 3;
+  }
+  .project-body {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding-block: 50px 65px;
+  }
+  .project-facts {
+    position: static;
+    grid-template-columns: 1fr 1fr;
+  }
+  .project-facts > div:nth-child(n + 3) {
+    grid-column: 1 / -1;
+  }
+  .next-project {
+    padding-block: 55px 70px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

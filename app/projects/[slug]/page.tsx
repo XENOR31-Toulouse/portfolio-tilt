@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 import { projects } from "@/lib/projects";
-import Image from "next/image";
+import { delay, stagger } from "@/lib/motion";
+import Tilt from "@/components/Tilt";
 
 function getProjectBySlug(slug: string) {
   return projects.find((p) => p.slug === slug);
@@ -35,105 +37,126 @@ export default async function ProjectPage({
   const project = getProjectBySlug(slug);
   if (!project) return notFound();
 
+  const index = projects.indexOf(project);
+  const next = projects[(index + 1) % projects.length];
+  const [banner, ...gallery] = project.cover
+    ? [project.cover, ...(project.gallery ?? [])]
+    : (project.gallery ?? []);
+  const date = project.date?.replace(" - *", "");
+
   return (
-    <main id="main-content" className="project-detail relative z-20">
-      <section className="mx-auto max-w-4xl px-6 pt-24 pb-24">
-        {/* Header */}
-        <Link
-          href="/projects"
-          className="text-sm text-violet-300 hover:underline"
-        >
-          ← Retour
+    <main id="main-content" className="project-detail">
+      <section className="shell project-hero">
+        <Link className="back-link enter" href="/projects" style={delay(0)}>
+          ← Tous les projets
         </Link>
+        <p className="eyebrow enter" style={delay(1)}>
+          {String(index + 1).padStart(2, "0")} / {project.category ?? project.tags[0]}
+          {date ? ` / ${date}` : ""}
+        </p>
+        <h1>
+          <span className="hero-line">
+            <span style={delay(2)}>{project.title}</span>
+          </span>
+        </h1>
+        <p className="intro muted enter" style={delay(4)}>
+          {project.description}
+        </p>
+      </section>
 
-        <h1 className="mt-4 text-3xl md:text-5xl font-bold">{project.title}</h1>
-        <p className="mt-3 text-slate-300 max-w-2xl">{project.description}</p>
-        <p className="mt-1 text-sm text-slate-500">{project.date ?? ""}</p>
-
-        {/* Cover (only if provided) */}
-        {project.cover && (
-          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
+      <div className="shell enter" style={delay(5)}>
+        <Tilt className={`project-banner visual-${index % 3}`} max={4}>
+          {banner ? (
             <Image
-              src={project.cover}
+              src={banner}
               alt={`Visuel – ${project.title}`}
-              width={1600}
-              height={900}
-              className="w-full h-auto object-cover"
+              fill
+              sizes="(max-width: 1200px) 100vw, 1200px"
               priority
             />
-          </div>
-        )}
+          ) : (
+            <div className="project-art" aria-hidden="true">
+              <span>{project.tags[0]}</span>
+              <strong>{project.visual ?? "</>"}</strong>
+              <span>{project.category ?? "DESIGN & DÉVELOPPEMENT"}</span>
+            </div>
+          )}
+          <span className="glare" aria-hidden="true" />
+        </Tilt>
+      </div>
 
-        {/* Gallery (only if provided) */}
-        {project.gallery?.length ? (
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {project.gallery.map((src) => (
-              <div
-                key={src}
-                className="overflow-hidden rounded-xl border border-white/10"
-              >
-                <Image
-                  src={src}
-                  alt={project.title}
-                  width={1200}
-                  height={800}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        ) : null}
-
-        {/* Long content (JSX from lib/projects.tsx) */}
-        {project.content && (
-          <article
-            className="
-              mt-10 leading-relaxed text-slate-200 space-y-6
-              [&_h2]:mt-8 [&_h2]:mb-2 [&_h2]:text-white [&_h2]:text-xl [&_h2]:font-semibold
-              [&_ul]:list-disc [&_ul]:list-inside [&_ul]:space-y-1
-              [&_li::marker]:text-violet-300
-              [&_a]:text-violet-300 [&_a]:underline [&_a]:underline-offset-4
-            "
-          >
-            {project.content}
-          </article>
-        )}
-
-        {/* Links */}
-        {project.links?.length ? (
-          <div className="mt-10">
-            <h2 className="text-xl font-semibold">Liens</h2>
-            <ul className="mt-3 space-y-2">
-              {project.links.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-violet-300 underline underline-offset-4"
-                  >
-                    {l.label}
-                  </a>
-                </li>
+      <section className="shell project-body">
+        <aside className="project-facts" data-reveal>
+          {project.category && (
+            <div>
+              <p className="eyebrow">CATÉGORIE</p>
+              <p>{project.category}</p>
+            </div>
+          )}
+          {date && (
+            <div>
+              <p className="eyebrow">ANNÉE</p>
+              <p>{date}</p>
+            </div>
+          )}
+          <div>
+            <p className="eyebrow">STACK</p>
+            <div className="tags">
+              {project.tags.map((t) => (
+                <span key={t}>{t}</span>
               ))}
-            </ul>
+            </div>
           </div>
-        ) : null}
+          {project.links?.length ? (
+            <div>
+              <p className="eyebrow">LIENS</p>
+              {project.links.map((l) => (
+                <a
+                  key={l.href}
+                  className="text-link"
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {l.label} ↗
+                </a>
+              ))}
+            </div>
+          ) : null}
+        </aside>
 
-        {/* Tags */}
-        {project.tags?.length ? (
-          <div className="mt-8 flex flex-wrap gap-2">
-            {project.tags.map((t) => (
-              <span
-                key={t}
-                className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        ) : null}
+        <div>
+          {project.content && (
+            <article className="project-content">{project.content}</article>
+          )}
+          {gallery.length ? (
+            <div className="project-gallery">
+              {gallery.map((src, i) => (
+                <div key={src} data-reveal style={stagger(i)}>
+                  <Image
+                    src={src}
+                    alt={project.title}
+                    width={1200}
+                    height={800}
+                    sizes="(max-width: 760px) 100vw, 400px"
+                  />
+                </div>
+              ))}
+            </div>
+          ) : null}
+        </div>
       </section>
+
+      <Link
+        href={`/projects/${next.slug}`}
+        className="shell next-project"
+        data-reveal="title"
+      >
+        <span className="eyebrow">PROJET SUIVANT</span>
+        <strong>
+          {next.title} <span aria-hidden="true">↗</span>
+        </strong>
+      </Link>
     </main>
   );
 }
