@@ -40,14 +40,13 @@ export default function Navbar() {
           <Link href="/#parcours" onClick={() => setOpen(false)}>
             Parcours
           </Link>
-          <a
-            href="/cv/Axel_Ibanez_CV.pdf"
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href="/cv"
+            aria-current={path === "/cv" ? "page" : undefined}
             onClick={() => setOpen(false)}
           >
-            Mon CV ↗
-          </a>
+            Mon CV
+          </Link>
           <Link
             className="nav-contact"
             href="/#contact"

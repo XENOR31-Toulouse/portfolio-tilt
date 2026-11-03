@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { profile } from "@/lib/profile";
 export default function Footer() {
   return (
@@ -7,6 +8,7 @@ export default function Footer() {
       </a>
       <span>© {new Date().getFullYear()} Axel Ibanez</span>
       <div>
+        <Link href="/cv">CV ↗</Link>
         <a href={profile.links.github} target="_blank" rel="noreferrer">
           GitHub ↗
         </a>

@@ -2,9 +2,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 export const metadata = {
-  title: "Axel Ibanez — Développeur Full Stack",
+  title: "Axel Ibanez — Développeur Full Stack | Applications & architecture",
   description:
-    "Développeur full stack à Toulouse. Découvrez mes projets web, mon parcours et mes compétences en Java, Angular et React.",
+    "Développeur full stack à Toulouse. Applications React et Angular, API Java Spring Boot, PostgreSQL, automatisation et infrastructure Rust chez Omena.",
   icons: { icon: "/utilisateur.svg" },
 };
 export default function RootLayout({

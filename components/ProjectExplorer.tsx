@@ -5,18 +5,22 @@ import type { Project } from "@/lib/projects";
 const categories = [
   "Tous",
   "Applications",
+  "Infrastructure",
   "Sites web",
   "Automatisation",
   "Formation",
 ];
 function category(p: Omit<Project, "content">) {
+  if (p.category) return p.category;
   return p.tags.includes("Formation")
     ? "Formation"
-    : p.tags.includes("Make")
+    : p.tags.includes("Make") || p.tags.includes("n8n")
       ? "Automatisation"
-      : p.tags.includes("WordPress") || p.tags.includes("Next.js")
-        ? "Sites web"
-        : "Applications";
+      : p.tags.includes("Rust")
+        ? "Infrastructure"
+        : p.tags.includes("WordPress") || p.tags.includes("Next.js")
+          ? "Sites web"
+          : "Applications";
 }
 export default function ProjectExplorer({
   projects,

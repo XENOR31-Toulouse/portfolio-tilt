@@ -15,8 +15,9 @@ export default function ProjectsIndex() {
         <em>prennent forme.</em>
       </h1>
       <p className="intro muted">
-        Applications métier, sites web et automatisation : une sélection de mon
-        travail, du besoin à la réalisation.
+        Interfaces web, API Java, orchestration et outillage d’infrastructure :
+        des réalisations présentées par leurs choix techniques. Les projets
+        internes sont décrits sans exposer leur finalité métier.
       </p>
       <ProjectExplorer projects={summaries} />
     </main>
