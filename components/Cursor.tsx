@@ -14,18 +14,23 @@ export default function Cursor() {
     );
     if (!allowed.matches) return;
 
-    let x = -100;
-    let y = -100;
-    let rx = x;
-    let ry = y;
+    let x = 0;
+    let y = 0;
+    let rx = 0;
+    let ry = 0;
     let raf = 0;
+    let shown = false;
     let magnet: HTMLElement | null = null;
     let center = { x: 0, y: 0 };
 
+    // `translate`, not `transform`: the hover `scale` would otherwise scale the offset too.
+    const place = () => {
+      ring.style.translate = `${rx}px ${ry}px`;
+    };
     const follow = () => {
       rx += (x - rx) * 0.2;
       ry += (y - ry) * 0.2;
-      ring.style.transform = `translate(${rx}px, ${ry}px)`;
+      place();
       raf = Math.abs(x - rx) + Math.abs(y - ry) > 0.1 ? requestAnimationFrame(follow) : 0;
     };
 
@@ -34,14 +39,8 @@ export default function Cursor() {
       magnet = null;
     };
 
-    const onMove = (e: PointerEvent) => {
-      if (e.pointerType !== "mouse") return;
-      x = e.clientX;
-      y = e.clientY;
-      const target = e.target instanceof Element ? e.target : null;
-      ring.classList.add("is-visible");
+    const update = (target: Element | null) => {
       ring.classList.toggle("is-hover", !!target?.closest("a, button"));
-
       const next = target?.closest<HTMLElement>(magnetic) ?? null;
       if (next !== magnet) {
         release();
@@ -54,23 +53,43 @@ export default function Cursor() {
       if (magnet) {
         magnet.style.translate = `${(x - center.x) * 0.25}px ${(y - center.y) * 0.35}px`;
       }
+    };
+
+    const onMove = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
+      x = e.clientX;
+      y = e.clientY;
+      if (!shown) {
+        rx = x;
+        ry = y;
+        place();
+        shown = true;
+        ring.classList.add("is-visible");
+      }
+      update(e.target instanceof Element ? e.target : null);
       if (!raf) raf = requestAnimationFrame(follow);
     };
 
     const onLeave = () => {
-      ring.classList.remove("is-visible");
+      shown = false;
+      ring.classList.remove("is-visible", "is-hover");
       release();
+    };
+
+    const onScroll = () => {
+      release();
+      if (shown) update(document.elementFromPoint(x, y));
     };
 
     document.addEventListener("pointermove", onMove, { passive: true });
     document.documentElement.addEventListener("pointerleave", onLeave);
-    window.addEventListener("scroll", release, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       cancelAnimationFrame(raf);
       release();
       document.removeEventListener("pointermove", onMove);
       document.documentElement.removeEventListener("pointerleave", onLeave);
-      window.removeEventListener("scroll", release);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
