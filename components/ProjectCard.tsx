@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Project } from "@/lib/projects";
+import Tilt from "./Tilt";
 export default function ProjectCard({
   project: p,
   index = 0,
@@ -10,8 +11,13 @@ export default function ProjectCard({
 }) {
   const cover = p.cover || p.gallery?.[0];
   return (
-    <Link href={`/projects/${p.slug}`} className="project-card">
-      <div className={`project-image visual-${index % 3}`}>
+    <Link
+      href={`/projects/${p.slug}`}
+      className="project-card"
+      data-reveal
+      style={{ "--i": index % 3 } as React.CSSProperties}
+    >
+      <Tilt className={`project-image visual-${index % 3}`} max={8}>
         {cover ? (
           <Image
             src={cover}
@@ -31,7 +37,8 @@ export default function ProjectCard({
         <span className="project-arrow" aria-hidden="true">
           ↗
         </span>
-      </div>
+        <span className="glare" aria-hidden="true" />
+      </Tilt>
       <div className="project-meta">
         <span>
           {String(index + 1).padStart(2, "0")} / {p.tags[0]}
