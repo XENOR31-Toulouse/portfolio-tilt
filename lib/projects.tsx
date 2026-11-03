@@ -346,7 +346,6 @@ export const projects: Project[] = [
       </>
     ),
   },
-  // creation de automatisation de la mise a jour de prospect de calendly  vers le crm axonaut grace a make
   {
     slug: "automation-calendly-axonaut",
     title: "Intégration SaaS & automatisation — Omena",
