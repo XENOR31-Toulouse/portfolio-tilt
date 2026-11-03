@@ -30,6 +30,9 @@ export default function Navbar() {
           {open ? "Fermer ✕" : "Menu ☰"}
         </button>
         <div id="nav-links" className={`nav-links ${open ? "is-open" : ""}`}>
+          <Link href="/#lab" onClick={() => setOpen(false)}>
+            Le labo
+          </Link>
           <Link
             href="/projects"
             aria-current={path.startsWith("/projects") ? "page" : undefined}
