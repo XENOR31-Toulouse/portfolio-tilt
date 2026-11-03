@@ -5,6 +5,7 @@ Portfolio personnel développé avec **Next.js 16**, **React 19**, **TypeScript*
 ## Sections
 
 - Accueil : présentation, projets techniques sélectionnés, parcours, compétences et contact.
+- CV : page `/cv` adaptée aux écrans mobiles, parcours professionnel, technologies et téléchargement du PDF A4 mis à jour (`public/cv/Axel_Ibanez_CV.pdf`).
 - Catalogue : filtres par applications, infrastructure, automatisation, sites web et formation.
 - Fiches projets : architecture, choix techniques, qualité et déploiement.
 

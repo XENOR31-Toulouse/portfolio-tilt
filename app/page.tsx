@@ -95,18 +95,13 @@ export default function Home() {
             <em>Évoluer.</em>
           </h2>
           <p className="intro muted">{profile.about}</p>
-          <a
-            className="text-link"
-            href="/cv/Axel_Ibanez_CV.pdf"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Consulter mon CV (PDF) ↗
-          </a>
+          <Link className="text-link" href="/cv">
+            Découvrir mon CV ↗
+          </Link>
         </div>
         <div className="timeline">
           {profile.experience.map((e) => (
-            <article key={e.role}>
+            <article key={`${e.company}-${e.period}-${e.role}`}>
               <p className="eyebrow">
                 {e.period.includes("**") ? "AVANT 2022" : e.period}
               </p>
