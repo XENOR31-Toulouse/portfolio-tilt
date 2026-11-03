@@ -1,13 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
 import { profile } from "@/lib/profile";
 import { projects } from "@/lib/projects";
 import ProjectCard from "@/components/ProjectCard";
+import HeroShowcase from "@/components/HeroShowcase";
 export default function Home() {
   return (
     <main id="main-content">
-      <section className="shell hero">
-        <div>
+      <section className="shell hero hero--signature">
+        <div className="hero-copy">
           <p className="eyebrow">DÉVELOPPEUR FULL STACK / APPLICATIONS & ARCHITECTURE</p>
           <h1>
             Des idées.
@@ -34,21 +34,7 @@ export default function Home() {
             ● &nbsp; Toulouse, France <span> / Chez Omena · développement & qualité logicielle</span>
           </p>
         </div>
-        <div className="portrait">
-          <Image
-            src="/images/profile.webp"
-            alt="Axel Ibanez"
-            fill
-            sizes="(max-width: 760px) 90vw, 440px"
-            priority
-          />
-          <div className="portrait-caption">
-            De la curiosité
-            <br />
-            <strong>à la création.</strong>
-            <span>✳</span>
-          </div>
-        </div>
+        <HeroShowcase />
       </section>
       <div className="stack-strip">
         <div className="shell">
