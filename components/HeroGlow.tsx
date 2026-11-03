@@ -133,6 +133,10 @@ export default function HeroGlow() {
       ro.disconnect();
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("visibilitychange", wake);
+      // Free the context once the canvas is really gone, not on a dev remount.
+      setTimeout(() => {
+        if (!canvas.isConnected) gl.getExtension("WEBGL_lose_context")?.loseContext();
+      });
     };
   }, []);
 
