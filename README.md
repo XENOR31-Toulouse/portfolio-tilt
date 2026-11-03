@@ -11,6 +11,8 @@ Portfolio personnel développé avec **Next.js 16**, **React 19**, **TypeScript*
 
 Les projets réalisés dans un contexte professionnel sont présentés sous l’angle de l’ingénierie logicielle. Les objectifs métiers, les clients finaux, les données et les éléments d’exploitation sensibles ne sont pas publiés.
 
+**Règle éditoriale :** les fiches de projets ne doivent pas associer explicitement un employeur aux technologies, configurations d’accès, moyens d’administration, sauvegardes, services internes ou topologies de production. Le CV PDF doit suivre la même règle. Les compétences générales peuvent être listées sans les relier à une infrastructure identifiée.
+
 ## Démarrage
 
 ```bash

@@ -29,126 +29,121 @@ export type Project = {
  * Project list
  */
 export const projects: Project[] = [
+
   {
-    slug: "ecosysteme-web-multi-interface-omena",
-    title: "Écosystème web multi-interface — Omena",
+    slug: "interfaces-web-et-architecture",
+    title: "Interfaces web & architecture applicative",
     date: "2026",
     category: "Applications",
     featured: true,
-    visual: "API",
+    visual: "WEB",
     description:
-      "Deux interfaces web complémentaires connectées à une API Java et une base PostgreSQL.",
-    tags: ["React", "Angular", "Spring Boot", "PostgreSQL", "Docker"],
+      "Interfaces complémentaires, composants réutilisables et services applicatifs découplés.",
+    tags: ["React", "Angular", "TypeScript", "Java", "Architecture logicielle"],
     content: (
       <>
-        <h2>Architecture</h2>
+        <h2>Conception des interfaces</h2>
         <p>
-          Conception d’un écosystème composé d’une PWA React avec Vite et d’un
-          dashboard Angular. Les deux interfaces communiquent avec une API REST
-          centralisée en Java 21 et Spring Boot.
+          Développement d’interfaces adaptées à plusieurs formats et contextes
+          d’utilisation. Attention portée à la navigation, à la cohérence
+          des composants et à la gestion des états.
         </p>
-        <h2>Back-end et données</h2>
+        <h2>Organisation du code</h2>
         <ul>
           <li>
-            Organisation en architecture hexagonale pour séparer le domaine,
-            les cas d’usage et les adaptateurs techniques.
+            Séparation entre présentation, règles applicatives et échanges de
+            données afin de limiter le couplage.
           </li>
           <li>
-            Persistance PostgreSQL, migrations de schéma avec Flyway et
-            gestion des accès côté serveur.
+            Définition de contrats explicites entre les modules et
+            réutilisation de composants lorsque cela est pertinent.
           </li>
           <li>
-            Échanges API typés, traitement des états applicatifs et prise en
-            charge des contraintes propres à une PWA.
+            Traitement des erreurs, validation des données et prise en compte
+            des usages mobiles.
           </li>
         </ul>
-        <h2>Qualité et déploiement</h2>
+        <h2>Qualité</h2>
         <p>
-          Environnements de développement et de production définis avec Docker
-          Compose, validations automatisées avec GitHub Actions et déploiement
-          de services conteneurisés sur un VPS. Les détails fonctionnels
-          internes ne sont volontairement pas présentés ici.
+          Maintenabilité, revues de code, tests et documentation : des choix
+          pensés pour faciliter les évolutions du produit. La description
+          porte sur les pratiques de développement, sans dévoiler de schéma
+          d’exploitation interne.
         </p>
       </>
     ),
   },
   {
-    slug: "plateforme-orchestration-services-omena",
-    title: "Plateforme d’orchestration de services — Omena",
+    slug: "orchestration-workflows-applicatifs",
+    title: "Orchestration et automatisation applicative",
     date: "2026",
     category: "Automatisation",
     featured: true,
     visual: "FLOW",
     description:
-      "Socle modulaire associant n8n, une API Spring Boot, une interface Angular et PostgreSQL.",
-    tags: ["n8n", "Spring Boot", "Angular", "PostgreSQL", "Docker Compose"],
+      "Conception de workflows modulaires et de mécanismes d’intégration maintenables.",
+    tags: ["Automatisation", "Workflows", "API", "Tests", "Architecture modulaire"],
     content: (
       <>
-        <h2>Découpage des responsabilités</h2>
+        <h2>Approche de conception</h2>
         <p>
-          Construction d’un socle dans lequel Angular assure l’interface web,
-          Spring Boot porte la logique applicative et expose les API REST, et
-          n8n orchestre les workflows entre les services.
+          Structuration de processus automatisés en étapes indépendantes et
+          lisibles. Les responsabilités sont séparées pour que chaque partie
+          puisse évoluer et être vérifiée sans complexifier l’ensemble.
         </p>
-        <h2>Architecture technique</h2>
+        <h2>Fiabilité et maintenance</h2>
         <ul>
-          <li>Services isolés et lancés ensemble avec Docker Compose.</li>
-          <li>
-            Stockage PostgreSQL et migrations Flyway pour les données de
-            l’API ; persistance dédiée pour n8n.
-          </li>
-          <li>
-            Contrôles de santé et restitution de l’état des services depuis
-            l’interface Angular.
-          </li>
+          <li>Validation des entrées et contrôle des résultats intermédiaires.</li>
+          <li>Gestion des erreurs et des situations inattendues.</li>
+          <li>Documentation des flux, tests et amélioration progressive.</li>
         </ul>
-        <h2>Approche</h2>
+        <h2>Retour d’expérience</h2>
         <p>
-          L’objectif technique est de garder des composants remplaçables,
-          observables et testables indépendamment. Le périmètre métier et les
-          sources de données restent confidentiels.
+          Ce travail m’a permis de renforcer une approche orientée modularité,
+          lisibilité et robustesse, indépendamment des outils ou services
+          utilisés pour l’implémentation.
         </p>
       </>
     ),
   },
   {
-    slug: "console-supervision-rust-omena",
-    title: "Console native de supervision — Rust",
+    slug: "application-desktop-rust",
+    title: "Application desktop de supervision — Rust",
     date: "2026",
     category: "Infrastructure",
     featured: true,
     visual: "RUST",
     description:
-      "Application Windows native pour superviser des VPS et fiabiliser les déploiements conteneurisés.",
-    tags: ["Rust", "egui", "OpenSSH", "SQLite", "Docker"],
+      "Application native de visualisation d’indicateurs et d’assistance aux opérations techniques.",
+    tags: ["Rust", "egui", "Desktop", "Monitoring"],
     content: (
       <>
         <h2>Application native</h2>
         <p>
-          Développement d’une interface Windows en Rust avec eframe/egui,
-          sans serveur web local. Les opérations distantes passent par
-          OpenSSH et la configuration SSH du poste.
+          Création d’une interface graphique avec Rust et egui pour présenter
+          clairement des indicateurs et faciliter la consultation d’états
+          techniques.
         </p>
-        <h2>Supervision et diagnostics</h2>
+        <h2>Conception logicielle</h2>
         <ul>
           <li>
-            Lecture des métriques système, de l’état des conteneurs et des
-            journaux techniques sur les VPS.
+            Architecture modulaire distinguant les composants d’interface,
+            le traitement des données et les opérations applicatives.
           </li>
           <li>
-            Historique local des mesures dans SQLite et visualisation des
-            tendances dans l’interface.
+            Gestion des tâches non bloquantes pour conserver une interface
+            fluide pendant les traitements.
           </li>
           <li>
-            Contrôles préalables aux déploiements et vérification des
-            sauvegardes PostgreSQL avant les opérations sensibles.
+            Gestion des erreurs et restitution compréhensible des informations
+            dans l’interface.
           </li>
         </ul>
-        <h2>Livraison</h2>
+        <h2>Qualité et distribution</h2>
         <p>
-          Compilation d’un exécutable portable via Rust/Cargo, avec
-          validation et production d’artefacts Windows par GitHub Actions.
-          Seuls les aspects d’ingénierie et d’exploitation sont détaillés.
+          Organisation du code, tests et processus de compilation
+          reproductible. Les mécanismes d’administration et les détails
+          d’exploitation ne sont pas décrits publiquement.
         </p>
       </>
     ),
@@ -238,7 +233,8 @@ export const projects: Project[] = [
     title: "Site Vitrine Omena",
     date: "2025 — en cours",
     description: "Refonte, formulaires, correctif.",
-    tags: ["WordPress", "Elementor"],
+    category: "Sites web",
+    tags: ["CMS", "Responsive", "Expérience utilisateur"],
     // cover: "/images/projects/site-vitrine-omena/omena_cover.jpg",
     links: [{ label: "Visiter", href: "https://omena.fr" }],
     content: (
@@ -260,10 +256,10 @@ export const projects: Project[] = [
           Implémentation
         </h2>
         <p className="text-slate-200 leading-relaxed">
-          Développement grâce à WordPress et Elementor Pro pour une
-          personnalisation avancée. Intégration de formulaires optimisés avec
-          validation et notifications par e-mail. Optimisation des
-          performances via la compression d’images.
+          Travail sur l’architecture éditoriale, les composants de mise en
+          page et le parcours de navigation. Améliorations de la lisibilité,
+          de l’accessibilité et des performances perçues sur différents
+          formats d’écran.
         </p>
       </>
     ),
@@ -347,14 +343,14 @@ export const projects: Project[] = [
     ),
   },
   {
-    slug: "automation-calendly-axonaut",
-    title: "Intégration SaaS & automatisation — Omena",
+    slug: "integration-saas-automatisation",
+    title: "Intégration SaaS & automatisation",
     date: "2025 — en cours",
     category: "Automatisation",
     description:
       "Connexion d’outils SaaS à travers des scénarios automatisés et des échanges de données contrôlés.",
     tags: ["Make", "API", "Automatisation"],
-    cover: "/images/projects/site-vitrine-omena/make-logo.png",
+    visual: "AUTO",
     content: (
       <>
         <h2>Architecture d’intégration</h2>

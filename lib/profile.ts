@@ -3,7 +3,7 @@ export const profile = {
   title: "Développeur Full Stack",
   location: "Toulouse (Compans Caffarelli)",
   about:
-    "Je conçois et fais évoluer des applications web complètes. Chez Omena, je travaille sur des interfaces React et Angular, des API Java, des données PostgreSQL, l’automatisation et le déploiement. J’aime construire des systèmes lisibles, testables et durables.",
+    "Je conçois et fais évoluer des applications web et des outils logiciels, avec une attention particulière à la maintenabilité, à la qualité du code et à l’expérience utilisateur. Actuellement chez Omena, je contribue à des projets de développement et d’automatisation.",
   contact: {
     phone: "06 11 27 18 43",
     email: "axel.ibanez31000@gmail.com",
@@ -16,7 +16,7 @@ export const profile = {
     core: [
       "Java", "Spring Boot", "TypeScript", "React", "Angular", "Next.js",
       "PostgreSQL", "Flyway", "Architecture hexagonale", "API REST",
-      "Docker", "GitHub Actions", "Rust", "n8n", "Linux / VPS", "Vercel",
+      "Docker", "GitHub Actions", "Rust", "n8n", "Linux", "Vercel",
       "Cypress", "MySQL", "MongoDB", "Kubernetes", "Kafka", "Git",
       "JavaScript", "HTML", "CSS", "Agile / Scrum",
     ]
@@ -27,9 +27,9 @@ export const profile = {
       company: "Omena",
       role: "Développeur Full Stack",
       highlights: [
-        "Développement d’applications web React/PWA et Angular autour d’API Java Spring Boot",
-        "Conception de services en architecture hexagonale et persistance PostgreSQL",
-        "Industrialisation des environnements Docker, des pipelines CI/CD et de l’outillage d’exploitation en Rust",
+        "Développement et évolution d’interfaces web adaptées à différents supports",
+        "Conception de services applicatifs et amélioration continue de la qualité logicielle",
+        "Contribution à l’automatisation, aux tests et à l’outillage de développement",
       ],
     },
     {
