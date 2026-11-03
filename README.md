@@ -4,7 +4,7 @@ Portfolio personnel développé avec **Next.js 16**, **React 19**, **TypeScript*
 
 ## Sections
 
-- Accueil : présentation, **laboratoire interactif** (interface, architecture, workflow), projets techniques sélectionnés, parcours, compétences et contact.
+- Accueil : présentation, projets techniques sélectionnés, parcours, compétences et contact.
 - CV : page `/cv` adaptée aux écrans mobiles, parcours professionnel, technologies et téléchargement du PDF A4 mis à jour (`public/cv/Axel_Ibanez_CV.pdf`).
 - Catalogue : filtres par applications, infrastructure, automatisation, sites web et formation.
 - Fiches projets : architecture, choix techniques, qualité et déploiement.
@@ -32,7 +32,3 @@ npm run build
 ## Déploiement
 
 Le site est destiné à être déployé sur Vercel. Les illustrations et le CV se trouvent dans `public/`.
-
-## Laboratoire interactif
-
-La section « Le labo » contient trois démonstrations locales : interface avec filtres et données fictives, schéma d'architecture conceptuel et simulation de workflow avec scénario de reprise. **Aucune de ces démos n'est connectée à des services, données ou infrastructures réels.** Aucun détail privé de l'employeur n'est exposé. Les fonctionnalités sont accessibles au clavier et les animations respectent `prefers-reduced-motion`.

@@ -3,7 +3,6 @@ import { profile } from "@/lib/profile";
 import { projects } from "@/lib/projects";
 import ProjectCard from "@/components/ProjectCard";
 import HeroShowcase from "@/components/HeroShowcase";
-import InteractiveLab from "@/components/InteractiveLab";
 export default function Home() {
   return (
     <main id="main-content">
@@ -24,12 +23,12 @@ export default function Home() {
             professionnels chez Omena.
           </p>
           <div className="actions">
-            <Link className="button primary" href="#lab">
-              Tester le labo ↗
+            <Link className="button primary" href="#projets">
+              Explorer mes projets ↗
             </Link>
-            <Link className="button" href="#projets">
-              Voir les projets
-            </Link>
+            <a className="button" href={`mailto:${profile.contact.email}`}>
+              Discutons ensemble
+            </a>
           </div>
           <p className="hero-note">
             ● &nbsp; Toulouse, France <span> / Chez Omena · développement & qualité logicielle</span>
@@ -51,28 +50,10 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <section id="lab" className="lab-section">
-        <div className="shell">
-          <div className="lab-intro">
-            <p className="eyebrow">01 / LABORATOIRE INTERACTIF</p>
-            <h2>
-              Assez parlé.
-              <br />
-              <em>À vous de jouer.</em>
-            </h2>
-            <p className="intro muted">
-              Un portfolio se parcourt. Le mien s&apos;explore aussi.
-              Testez une interface, découvrez une architecture et lancez
-              un petit scénario automatisé — sans installer quoi que ce soit.
-            </p>
-          </div>
-          <InteractiveLab />
-        </div>
-      </section>
       <section id="projets" className="shell section">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">02 / PROJETS SÉLECTIONNÉS</p>
+            <p className="eyebrow">01 / PROJETS SÉLECTIONNÉS</p>
             <h2>
               Du code, mais surtout
               <br />
@@ -91,7 +72,7 @@ export default function Home() {
       </section>
       <section id="parcours" className="shell section journey">
         <div>
-          <p className="eyebrow">03 / PARCOURS</p>
+          <p className="eyebrow">02 / PARCOURS</p>
           <h2>
             Apprendre.
             <br />
@@ -122,7 +103,7 @@ export default function Home() {
         </div>
       </section>
       <section className="shell section">
-        <p className="eyebrow">04 / COMPÉTENCES & CURIOSITÉ</p>
+        <p className="eyebrow">03 / COMPÉTENCES & CURIOSITÉ</p>
         <h2>
           Une vision <em>full stack.</em>
         </h2>
@@ -154,7 +135,7 @@ export default function Home() {
         </div>
       </section>
       <section id="contact" className="shell contact-section">
-        <p className="eyebrow">05 / ET SI ON ÉCHANGEAIT ?</p>
+        <p className="eyebrow">04 / ET SI ON ÉCHANGEAIT ?</p>
         <h2>
           Votre prochain projet
           <br />
