@@ -6,6 +6,7 @@ import { projects } from "@/lib/projects";
 import { delay, stagger } from "@/lib/motion";
 import Tilt from "@/components/Tilt";
 import Scramble from "@/components/Scramble";
+import HeroGlow from "@/components/HeroGlow";
 
 export const metadata: Metadata = {
   title: "CV — Axel Ibanez | Développeur Full Stack",
@@ -27,7 +28,8 @@ const featuredProjects = projects.filter((project) => project.featured);
 export default function CvPage() {
   return (
     <main id="main-content" className="cv-page">
-      <section className="shell cv-hero" aria-labelledby="cv-heading">
+      <section className="shell cv-hero hero-stage" aria-labelledby="cv-heading">
+        <HeroGlow />
         <div className="cv-hero-copy">
           <p className="eyebrow enter" style={delay(0)}>
             <Scramble text="MON CV / PARCOURS & EXPERTISE" />

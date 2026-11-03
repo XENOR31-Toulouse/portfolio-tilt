@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { profile } from "@/lib/profile";
 import { delay } from "@/lib/motion";
 import Scramble from "@/components/Scramble";
+import HeroGlow from "@/components/HeroGlow";
 
 export const metadata: Metadata = {
   title: "Mentions légales — Axel Ibanez",
@@ -14,7 +15,8 @@ const email = profile.contact.email;
 export default function LegalPage() {
   return (
     <main id="main-content">
-      <section className="shell project-hero">
+      <section className="shell project-hero hero-stage">
+        <HeroGlow />
         <p className="eyebrow enter" style={delay(0)}>
           <Scramble text="INFORMATIONS LÉGALES" />
         </p>

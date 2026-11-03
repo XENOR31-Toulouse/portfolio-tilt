@@ -47,7 +47,7 @@ h3,
 .brand,
 .project-art strong,
 .portrait-caption,
-.next-project strong {
+.next-project > strong {
   font-family: var(--font-display), var(--font-body), Arial, sans-serif;
 }
 a {
@@ -655,7 +655,7 @@ h3 {
   padding-block: 80px 100px;
   border-top: 1px solid var(--line);
 }
-.next-project strong {
+.next-project > strong {
   display: block;
   font-size: clamp(34px, 5vw, 68px);
   font-weight: 500;
@@ -663,15 +663,15 @@ h3 {
   letter-spacing: -2px;
   transition: color 0.3s;
 }
-.next-project strong span {
+.next-project > strong span {
   display: inline-block;
   color: var(--accent);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.next-project:hover strong {
+.next-project:hover > strong {
   color: var(--accent);
 }
-.next-project:hover strong span {
+.next-project:hover > strong span {
   transform: translate(8px, -8px);
 }
 .skip-link {
@@ -1604,10 +1604,12 @@ h3 {
 }
 .hero-glow {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 50%;
   z-index: -1;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: min(100%, 100svh);
+  translate: -50% 0;
   pointer-events: none;
   opacity: 0;
   transition: opacity 1.8s ease;
@@ -1643,4 +1645,142 @@ h3 {
 .cursor-ring.is-hover {
   scale: 1.6;
   background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.not-found {
+  padding-block: 70px 120px;
+}
+.not-found-code {
+  margin: 0 0 10px;
+  font-family: var(--font-display), var(--font-body), Arial, sans-serif;
+  font-size: clamp(110px, 20vw, 240px);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.next-project {
+  position: relative;
+}
+.next-preview {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 280px;
+  aspect-ratio: 1.35;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  pointer-events: none;
+  opacity: 0;
+  translate: 0 -40%;
+  rotate: -6deg;
+  scale: 0.9;
+  transition:
+    opacity 0.4s,
+    translate 0.5s var(--ease-out),
+    rotate 0.5s var(--ease-out),
+    scale 0.5s var(--ease-out);
+}
+.next-preview.visual-0 {
+  background: var(--surface-1);
+}
+.next-preview:has(img) {
+  background: var(--paper);
+}
+.next-preview img {
+  object-fit: contain;
+  padding: 18px;
+}
+.next-preview .project-art strong {
+  font-size: 54px;
+}
+.next-project:hover .next-preview {
+  opacity: 1;
+  translate: 0 -50%;
+  rotate: 3deg;
+  scale: 1;
+}
+@media (hover: hover) and (min-width: 761px) {
+  .next-project > strong {
+    padding-right: 320px;
+  }
+}
+@media (hover: none), (max-width: 760px) {
+  .next-preview {
+    display: none;
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* The banner clips its content, so it carries the timeline its children follow. */
+    .project-banner {
+      view-timeline: --banner block;
+    }
+    .project-banner img,
+    .project-banner .project-art {
+      animation: banner-zoom linear both;
+      animation-timeline: --banner;
+      animation-range: cover 45% cover 100%;
+    }
+  }
+}
+@keyframes banner-zoom {
+  to {
+    transform: scale(1.14) translateY(4%);
+  }
+}
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.cv-identity::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0 68%,
+    var(--accent) 84%,
+    transparent 100%
+  );
+  -webkit-mask:
+    linear-gradient(var(--bg) 0 0) content-box,
+    linear-gradient(var(--bg) 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: orbit 7s linear infinite;
+}
+@keyframes orbit {
+  to {
+    --angle: 360deg;
+  }
+}
+.cv-skill-tags span:nth-child(2) {
+  --i: 1;
+}
+.cv-skill-tags span:nth-child(3) {
+  --i: 2;
+}
+.cv-skill-tags span:nth-child(4) {
+  --i: 3;
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .cv-skill-tags span {
+      animation: tag-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+  }
+}
+@keyframes tag-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(10px + var(--i, 0) * 14px)) scale(0.9);
+  }
 }

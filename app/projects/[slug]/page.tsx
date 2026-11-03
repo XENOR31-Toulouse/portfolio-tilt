@@ -7,6 +7,7 @@ import { projects } from "@/lib/projects";
 import { delay, stagger } from "@/lib/motion";
 import Tilt from "@/components/Tilt";
 import Scramble from "@/components/Scramble";
+import HeroGlow from "@/components/HeroGlow";
 
 function getProjectBySlug(slug: string) {
   return projects.find((p) => p.slug === slug);
@@ -41,6 +42,8 @@ export default async function ProjectPage({
 
   const index = projects.indexOf(project);
   const next = projects[(index + 1) % projects.length];
+  const nextIndex = projects.indexOf(next);
+  const nextCover = next.cover ?? next.gallery?.[0];
   const [banner, ...gallery] = project.cover
     ? [project.cover, ...(project.gallery ?? [])]
     : (project.gallery ?? []);
@@ -48,7 +51,8 @@ export default async function ProjectPage({
 
   return (
     <main id="main-content" className="project-detail">
-      <section className="shell project-hero">
+      <section className="shell project-hero hero-stage">
+        <HeroGlow />
         <Link className="back-link enter" href="/projects" style={delay(0)}>
           ← Tous les projets
         </Link>
@@ -161,6 +165,15 @@ export default async function ProjectPage({
         <strong>
           {next.title} <span aria-hidden="true">↗</span>
         </strong>
+        <span className={`next-preview visual-${nextIndex % 3}`} aria-hidden="true">
+          {nextCover ? (
+            <Image src={nextCover} alt="" fill sizes="280px" />
+          ) : (
+            <span className="project-art">
+              <strong>{next.visual ?? "</>"}</strong>
+            </span>
+          )}
+        </span>
       </Link>
     </main>
   );

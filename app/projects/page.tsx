@@ -2,6 +2,7 @@ import { projects } from "@/lib/projects";
 import ProjectExplorer from "@/components/ProjectExplorer";
 import { delay } from "@/lib/motion";
 import Scramble from "@/components/Scramble";
+import HeroGlow from "@/components/HeroGlow";
 export const metadata = { title: "Projets — Axel Ibanez" };
 export default function ProjectsIndex() {
   const summaries = projects.map(({ content, ...p }) => {
@@ -9,7 +10,8 @@ export default function ProjectsIndex() {
     return p;
   });
   return (
-    <main id="main-content" className="shell section projects-page">
+    <main id="main-content" className="shell section projects-page hero-stage">
+      <HeroGlow />
       <p className="eyebrow enter" style={delay(0)}>
         <Scramble text={`LE PORTFOLIO / ${projects.length} PROJETS`} />
       </p>
