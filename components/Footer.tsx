@@ -15,6 +15,7 @@ export default function Footer() {
         <a href={profile.links.linkedin} target="_blank" rel="noreferrer">
           LinkedIn ↗
         </a>
+        <Link href="/mentions-legales">Mentions légales</Link>
         <a href="#main-content">En haut ↑</a>
       </div>
     </footer>
