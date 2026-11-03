@@ -235,7 +235,7 @@ export const projects: Project[] = [
     description: "Refonte, formulaires, correctif.",
     category: "Sites web",
     tags: ["CMS", "Responsive", "Expérience utilisateur"],
-    // cover: "/images/projects/site-vitrine-omena/omena_cover.jpg",
+    // cover: "/images/projects/site-vitrine-omena/omena_cover.webp",
     links: [{ label: "Visiter", href: "https://omena.fr" }],
     content: (
       <>
@@ -271,8 +271,8 @@ export const projects: Project[] = [
     date: "2024 — en cours",
     description: "Création d'un site vitrine pour un avocat.",
     tags: ["WordPress", "Elementor"],
-    // cover: "/images/projects/avocat/Cabinet.jpg",
-    gallery: ["/images/projects/avocat/Domaines.jpg", "/images/projects/avocat/Cabinet.jpg",],
+    // cover: "/images/projects/avocat/Cabinet.webp",
+    gallery: ["/images/projects/avocat/Domaines.webp", "/images/projects/avocat/Cabinet.webp",],
     content: (
       <>
         <h2 className="text-xl font-semibold text-white mt-8">Contexte</h2>

@@ -18,8 +18,18 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+.brand,
+.project-art strong,
+.portrait-caption,
+.next-project strong {
+  font-family: var(--font-display), var(--font-body), Arial, sans-serif;
 }
 a {
   text-decoration: none;
@@ -110,7 +120,7 @@ p {
 h1 {
   font-size: clamp(58px, 6.8vw, 96px);
   line-height: 1.02;
-  letter-spacing: -5px;
+  letter-spacing: -0.04em;
   font-weight: 600;
   margin-bottom: 28px;
 }
