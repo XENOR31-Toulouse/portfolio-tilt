@@ -70,7 +70,7 @@ export default function CvPage() {
                 className="cv-avatar"
                 priority
               />
-              <span className="cv-identity-mark" aria-hidden="true">✳</span>
+              <span className="cv-identity-mark asterisk" aria-hidden="true" />
             </div>
             <p className="cv-identity-label">EN QUELQUES MOTS</p>
             <h2>{profile.name}</h2>
