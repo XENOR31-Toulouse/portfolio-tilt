@@ -1646,6 +1646,40 @@ h3 {
   scale: 1.6;
   background-color: color-mix(in srgb, var(--accent) 12%, transparent);
 }
+.cursor-ring.is-visible.is-text {
+  opacity: 0;
+  scale: 0.6;
+}
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 0 1.5px var(--bg);
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.2s,
+    scale 0.2s var(--ease-out);
+}
+.cursor-dot.is-visible {
+  opacity: 1;
+}
+.cursor-dot.is-text {
+  scale: 0.34 3.2;
+}
+html.custom-cursor,
+html.custom-cursor * {
+  cursor: none;
+}
+html.custom-cursor :is(input, textarea, select, [contenteditable]) {
+  cursor: auto;
+}
 .not-found {
   padding-block: 70px 120px;
 }
