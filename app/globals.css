@@ -190,7 +190,8 @@ h3 {
   font-weight: 600;
   transition:
     background 0.2s,
-    transform 0.2s;
+    transform 0.2s,
+    translate 0.35s var(--ease-out);
 }
 .primary {
   background: var(--accent);
@@ -210,7 +211,8 @@ h3 {
 .filters button {
   transition:
     transform 0.15s,
-    border-color 0.2s;
+    border-color 0.2s,
+    translate 0.35s var(--ease-out);
 }
 .nav-contact:active,
 .menu-toggle:active,
@@ -1574,4 +1576,71 @@ h3 {
   .marquee-track li[aria-hidden] {
     display: none;
   }
+}
+
+/* Transitions entre pages, fond lumineux, texte décodé et curseur */
+::view-transition-group(.morph) {
+  animation-duration: 550ms;
+  animation-timing-function: var(--ease-out);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+@keyframes via-blur {
+  35% {
+    filter: blur(4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+.hero-stage {
+  position: relative;
+  isolation: isolate;
+}
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+  -webkit-mask-image: linear-gradient(var(--bg) 55%, transparent);
+  mask-image: linear-gradient(var(--bg) 55%, transparent);
+}
+.hero-glow.is-on {
+  opacity: 1;
+}
+.scramble {
+  font-variant-numeric: tabular-nums;
+}
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1px solid color-mix(in srgb, var(--accent) 70%, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.3s,
+    scale 0.35s var(--ease-out),
+    background-color 0.35s;
+}
+.cursor-ring.is-visible {
+  opacity: 1;
+}
+.cursor-ring.is-hover {
+  scale: 1.6;
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
 }

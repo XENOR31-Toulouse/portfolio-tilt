@@ -5,6 +5,7 @@ import { profile } from "@/lib/profile";
 import { projects } from "@/lib/projects";
 import { delay, stagger } from "@/lib/motion";
 import Tilt from "@/components/Tilt";
+import Scramble from "@/components/Scramble";
 
 export const metadata: Metadata = {
   title: "CV — Axel Ibanez | Développeur Full Stack",
@@ -29,7 +30,7 @@ export default function CvPage() {
       <section className="shell cv-hero" aria-labelledby="cv-heading">
         <div className="cv-hero-copy">
           <p className="eyebrow enter" style={delay(0)}>
-            MON CV / PARCOURS & EXPERTISE
+            <Scramble text="MON CV / PARCOURS & EXPERTISE" />
           </p>
           <h1 id="cv-heading">
             <span className="hero-line">
@@ -97,7 +98,7 @@ export default function CvPage() {
         <div className="cv-main-column">
           <section className="cv-block" aria-labelledby="cv-experience-title">
             <div data-reveal="title">
-              <p className="eyebrow">01 / EXPÉRIENCE</p>
+              <p className="eyebrow"><Scramble text="01 / EXPÉRIENCE" /></p>
               <h2 id="cv-experience-title">Concevoir. Développer. <em>Livrer.</em></h2>
             </div>
             <ol className="cv-experience-list">
@@ -123,7 +124,7 @@ export default function CvPage() {
 
           <section className="cv-block" aria-labelledby="cv-projects-title">
             <div data-reveal="title">
-              <p className="eyebrow">02 / RÉALISATIONS RÉCENTES</p>
+              <p className="eyebrow"><Scramble text="02 / RÉALISATIONS RÉCENTES" /></p>
               <h2 id="cv-projects-title">La technique <em>en action.</em></h2>
             </div>
             <p className="muted cv-section-intro" data-reveal>
@@ -155,7 +156,7 @@ export default function CvPage() {
 
         <aside className="cv-side-column">
           <section className="cv-side-card" data-reveal aria-labelledby="cv-skills-title">
-            <p className="eyebrow">03 / BOÎTE À OUTILS</p>
+            <p className="eyebrow"><Scramble text="03 / BOÎTE À OUTILS" /></p>
             <h2 id="cv-skills-title">Compétences</h2>
             {expertise.map((group) => (
               <div className="cv-skill-group" key={group.label}>
@@ -168,7 +169,7 @@ export default function CvPage() {
           </section>
 
           <section className="cv-side-card" data-reveal aria-labelledby="cv-training-title">
-            <p className="eyebrow">04 / FORMATION</p>
+            <p className="eyebrow"><Scramble text="04 / FORMATION" /></p>
             <h2 id="cv-training-title">Diplômes</h2>
             <div className="cv-education-list">
               {profile.education.map((education) => (
@@ -182,7 +183,7 @@ export default function CvPage() {
           </section>
 
           <section className="cv-side-card" data-reveal aria-labelledby="cv-about-title">
-            <p className="eyebrow">05 / EN DEHORS DU CODE</p>
+            <p className="eyebrow"><Scramble text="05 / EN DEHORS DU CODE" /></p>
             <h2 id="cv-about-title">Curiosité & échanges</h2>
             <h3 className="cv-subheading">Langues</h3>
             <ul className="cv-mini-list">
@@ -201,7 +202,7 @@ export default function CvPage() {
 
       <section className="shell cv-final-cta" data-reveal="title" aria-label="Télécharger mon CV">
         <div>
-          <p className="eyebrow">GARDONS LE CONTACT</p>
+          <p className="eyebrow"><Scramble text="GARDONS LE CONTACT" /></p>
           <h2>Un parcours à découvrir, <em>un projet à construire.</em></h2>
           <p className="muted">Vous pouvez consulter cette page ou récupérer mon CV au format PDF.</p>
         </div>

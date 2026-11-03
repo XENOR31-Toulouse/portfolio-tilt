@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,6 +6,7 @@ import Image from "next/image";
 import { projects } from "@/lib/projects";
 import { delay, stagger } from "@/lib/motion";
 import Tilt from "@/components/Tilt";
+import Scramble from "@/components/Scramble";
 
 function getProjectBySlug(slug: string) {
   return projects.find((p) => p.slug === slug);
@@ -51,8 +53,9 @@ export default async function ProjectPage({
           ← Tous les projets
         </Link>
         <p className="eyebrow enter" style={delay(1)}>
-          {String(index + 1).padStart(2, "0")} / {project.category ?? project.tags[0]}
-          {date ? ` / ${date}` : ""}
+          <Scramble
+            text={`${String(index + 1).padStart(2, "0")} / ${project.category ?? project.tags[0]}${date ? ` / ${date}` : ""}`}
+          />
         </p>
         <h1>
           <span className="hero-line">
@@ -64,25 +67,27 @@ export default async function ProjectPage({
         </p>
       </section>
 
-      <div className="shell enter" style={delay(5)}>
-        <Tilt className={`project-banner visual-${index % 3}`} max={4}>
-          {banner ? (
-            <Image
-              src={banner}
-              alt={`Visuel – ${project.title}`}
-              fill
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              priority
-            />
-          ) : (
-            <div className="project-art" aria-hidden="true">
-              <span>{project.tags[0]}</span>
-              <strong>{project.visual ?? "</>"}</strong>
-              <span>{project.category ?? "DESIGN & DÉVELOPPEMENT"}</span>
-            </div>
-          )}
-          <span className="glare" aria-hidden="true" />
-        </Tilt>
+      <div className="shell">
+        <ViewTransition name={`project-${project.slug}`} share="morph" default="none">
+          <Tilt className={`project-banner visual-${index % 3}`} max={4}>
+            {banner ? (
+              <Image
+                src={banner}
+                alt={`Visuel – ${project.title}`}
+                fill
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                priority
+              />
+            ) : (
+              <div className="project-art" aria-hidden="true">
+                <span>{project.tags[0]}</span>
+                <strong>{project.visual ?? "</>"}</strong>
+                <span>{project.category ?? "DESIGN & DÉVELOPPEMENT"}</span>
+              </div>
+            )}
+            <span className="glare" aria-hidden="true" />
+          </Tilt>
+        </ViewTransition>
       </div>
 
       <section className="shell project-body">
