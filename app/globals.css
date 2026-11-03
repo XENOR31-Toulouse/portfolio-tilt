@@ -533,6 +533,9 @@ h3 {
   align-items: start;
   padding-block: 80px 100px;
 }
+.legal-body {
+  padding-block: 30px 110px;
+}
 .project-facts {
   position: sticky;
   top: 120px;

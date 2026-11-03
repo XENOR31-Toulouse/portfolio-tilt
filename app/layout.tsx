@@ -8,7 +8,6 @@ export const metadata = {
   title: "Axel Ibanez — Développeur Full Stack | Applications & architecture",
   description:
     "Développeur full stack à Toulouse. Expériences, projets web, architecture logicielle, automatisation et applications desktop.",
-  icons: { icon: "/utilisateur.svg" },
 };
 export default function RootLayout({
   children,
