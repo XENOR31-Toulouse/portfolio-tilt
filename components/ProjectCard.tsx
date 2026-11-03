@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Project } from "@/lib/projects";
 import Tilt from "./Tilt";
+import { stagger } from "@/lib/motion";
 export default function ProjectCard({
   project: p,
   index = 0,
@@ -15,7 +16,7 @@ export default function ProjectCard({
       href={`/projects/${p.slug}`}
       className="project-card"
       data-reveal
-      style={{ "--i": index % 3 } as React.CSSProperties}
+      style={stagger(index)}
     >
       <Tilt className={`project-image visual-${index % 3}`} max={8}>
         {cover ? (
