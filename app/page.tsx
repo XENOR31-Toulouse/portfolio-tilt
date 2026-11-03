@@ -34,7 +34,7 @@ export default function Home() {
         </div>
         <div className="portrait">
           <Image
-            src="/images/profile.jpg"
+            src="/images/profile.webp"
             alt="Axel Ibanez"
             fill
             sizes="(max-width: 760px) 90vw, 440px"
