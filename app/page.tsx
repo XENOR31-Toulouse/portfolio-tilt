@@ -62,7 +62,7 @@ export default function Home() {
               De la curiosité
               <br />
               <strong>à la création.</strong>
-              <span>✳</span>
+              <span className="asterisk" aria-hidden="true" />
             </div>
           </div>
         </Tilt>
